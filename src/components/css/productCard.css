@@ -3,22 +3,128 @@ main {
   padding: 0 80px;
 }
 
-main div {
+main > div {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
 }
 
 .parentOfCard {
   padding: 6px;
-  -webkit-box-flex: 1;
-      -ms-flex: 1;
-          flex: 1;
+  margin: 20px 0 0 20px;
 }
 
 .parentOfCard .card {
   width: 100%;
-  height: 500px;
+  min-width: 100%;
+  height: 350px;
   border: 1px solid #20283a;
   border-radius: 8px;
+}
+
+.parentOfCard .card .productImg {
+  height: 70%;
+}
+
+.parentOfCard .card .productImg img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+
+.parentOfCard .card .productDetail {
+  background-color: #20283a;
+  border-radius: 10px 10px 8px 8px;
+  height: 30%;
+  padding: 10px;
+  color: #fbfbfb;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.parentOfCard .card .productDetail .productRating {
+  margin-top: 1px;
+}
+
+.parentOfCard .card .productDetail .productRating span {
+  margin-left: 5px;
+}
+
+.parentOfCard .card .productDetail .productRating span:nth-child(1) {
+  margin-left: 0px;
+}
+
+.parentOfCard .card .productDetail .productPricing {
+  margin-top: auto;
+  text-align: right;
+  font-size: 20px;
+}
+
+@media (max-width: 576px) {
+  main {
+    margin-top: 40px;
+  }
+  .parentOfCard {
+    margin: 20px 10px 0 10px;
+  }
+}
+
+@media (max-width: 768px) {
+  main {
+    padding: 0px;
+  }
+  .parentOfCard {
+    width: 270px;
+  }
+  .parentOfCard .card {
+    width: 100%;
+    height: 350px;
+  }
+}
+
+@media (min-width: 768px) {
+  main {
+    padding: 0px;
+  }
+  .parentOfCard .card {
+    width: 270px;
+    height: 350px;
+  }
+}
+
+@media (min-width: 992px) {
+  main {
+    padding: 0px;
+  }
+  .parentOfCard {
+    padding: 6px;
+  }
+  .parentOfCard .card {
+    width: 270px;
+    height: 350px;
+  }
+}
+
+@media (min-width: 1200px) {
+  main {
+    padding: 0 80px;
+  }
+  .parentOfCard {
+    padding: 6px;
+  }
+  .parentOfCard .card {
+    width: 270px;
+    height: 350px;
+  }
 }

@@ -1,1 +1,12 @@
-/* No CSS */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.border {
+  border: 2px solid red;
+}
