@@ -1,9 +1,9 @@
-main {
+.main {
   margin-top: 40px;
   padding: 0 80px;
 }
 
-main > div {
+.main > div {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -72,7 +72,7 @@ main > div {
 }
 
 @media (max-width: 576px) {
-  main {
+  .main {
     margin-top: 40px;
   }
   .parentOfCard {
@@ -81,7 +81,7 @@ main > div {
 }
 
 @media (max-width: 768px) {
-  main {
+  .main {
     padding: 0px;
   }
   .parentOfCard {
@@ -94,7 +94,7 @@ main > div {
 }
 
 @media (min-width: 768px) {
-  main {
+  .main {
     padding: 0px;
   }
   .parentOfCard .card {
@@ -104,7 +104,7 @@ main > div {
 }
 
 @media (min-width: 992px) {
-  main {
+  .main {
     padding: 0px;
   }
   .parentOfCard {
@@ -117,7 +117,7 @@ main > div {
 }
 
 @media (min-width: 1200px) {
-  main {
+  .main {
     padding: 0 80px;
   }
   .parentOfCard {

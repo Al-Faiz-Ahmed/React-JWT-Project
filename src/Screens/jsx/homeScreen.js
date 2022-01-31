@@ -1,7 +1,7 @@
 import React from "react";
-import HomeScreenNavbar from "../components/Navbars/homeNavbar";
-import ProductRow from "../components/products/productRow"
-import "./css/homeScreen.css"
+import HomeScreenNavbar from "../../components/Navbars/homeNavbar";
+import ProductRow from "../../components/products/productRow"
+import "../css/homeScreen.css"
 export default function HomeScreen() {
   return (
     <>

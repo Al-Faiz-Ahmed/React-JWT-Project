@@ -1,0 +1,46 @@
+.defaultLink {
+  text-decoration: none;
+  color: #fbfbfb;
+}
+
+header {
+  background: #20283a;
+}
+
+header nav {
+  height: 60px;
+  color: white;
+}
+
+nav {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin: 0 80px;
+}
+
+nav .brand .brandName {
+  font-size: 26px;
+}
+
+nav ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  list-style-type: none;
+  padding: 0;
+}
+
+nav ul li {
+  margin-left: 20px;
+}
+
+nav ul li:nth-child(1) {
+  margin-left: 0px;
+}

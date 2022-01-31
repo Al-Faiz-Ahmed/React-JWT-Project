@@ -1,5 +1,5 @@
 @import "allVariable";
-main {
+.main {
   margin-top: 40px;
   padding: 0 80px;
   > div {
@@ -60,7 +60,7 @@ main {
 
 // Extra small devices (portrait phones, less than 576px)
 @media (max-width: 576px) {
-  main {
+  .main {
     margin-top: 40px;
   }
   .parentOfCard {
@@ -73,7 +73,7 @@ main {
 // }
 
 @media (max-width: 768px) {
-  main {
+  .main {
     padding: 0px;
   }
   .parentOfCard {
@@ -87,7 +87,7 @@ main {
 
 // Medium devices (tablets, 768px and up)
 @media (min-width: 768px) {
-  main {
+  .main {
     padding: 0px;
   }
   .parentOfCard {
@@ -100,7 +100,7 @@ main {
 
 // Large devices (desktops, 992px and up)
 @media (min-width: 992px) {
-  main {
+  .main {
     padding: 0px;
   }
   .parentOfCard {
@@ -114,7 +114,7 @@ main {
 
 // Extra large devices (large desktops, 1200px and up)
 @media (min-width: 1200px) {
-  main {
+  .main {
     padding: 0 80px;
   }
   .parentOfCard {

@@ -1,0 +1,29 @@
+.main {
+  padding: 0 80px;
+}
+
+.breadCrumbs {
+  margin-top: 10px;
+}
+
+.breadCrumbs p span {
+  text-transform: capitalize;
+  font-weight: bold;
+  cursor: auto;
+}
+
+.breadCrumbs p span .link {
+  text-decoration: none;
+  color: #20283a;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.breadCrumbs p span i {
+  padding: 0 10px;
+  font-size: 18px;
+}
+
+.productDetailsDiv {
+  border: 2px solid red;
+}

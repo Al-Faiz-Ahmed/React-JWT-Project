@@ -1,11 +1,11 @@
 import React from "react";
 import ProductCard from "./productCard";
-import "../css/productCard.css";
+import styles from "../css/productCard.module.css";
 import productData from "../productsData/productsData";
 export default function ProductRow() {
   return (
     <>
-      <main>
+      <main className={styles.main}>
         <div>
           {productData.map((data, index) => {
             return (
@@ -19,8 +19,9 @@ export default function ProductRow() {
                 Reviews={data.numReviews}
                 Price={data.price}
                 Description={data.description}
+                UniqueID={data._id}
               />
-            );
+            )
           })}
         </div>
       </main>
