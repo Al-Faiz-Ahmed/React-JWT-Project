@@ -1,5 +1,5 @@
 .main {
-  padding: 0 80px;
+  padding: 0 clamp(2%, 5vw, 80px);
 }
 
 .breadCrumbs {
@@ -26,4 +26,85 @@
 
 .productDetailsDiv {
   border: 2px solid red;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  margin-top: 20px;
+}
+
+.imageParentDiv {
+  -webkit-box-flex: 5;
+      -ms-flex: 5;
+          flex: 5;
+  min-width: clamp(200px, 20vw, 490px);
+  border: 2px solid #6f00ff;
+}
+
+.imageParentDiv img {
+  border: 2px solid #33ff00;
+  width: 100%;
+  height: 40vw;
+  min-height: 400px;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+
+.productDetails {
+  -webkit-box-flex: 2.5;
+      -ms-flex: 2.5;
+          flex: 2.5;
+  min-width: 250px;
+  margin-left: auto;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.productDetails .rating {
+  margin-top: 20px;
+}
+
+.productDetails .price {
+  margin-top: 10px;
+}
+
+.productDetails .description {
+  margin-top: 5px;
+  text-transform: capitalize;
+}
+
+.addtoCart {
+  -webkit-box-flex: 2.5;
+      -ms-flex: 2.5;
+          flex: 2.5;
+  min-width: 250px;
+  border: 2px solid #6f00ff;
+  width: 250px;
+}
+
+.addtoCart .price,
+.addtoCart .stock {
+  margin-top: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.addtoCart .addtoCartbutton {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.addtoCart .addtoCartbutton button {
+  width: 100%;
+  padding: 10px 20px;
+  color: #20283a;
+  border: 1px solid #20283a;
+  background-color: gold;
+  border-radius: 5px;
 }

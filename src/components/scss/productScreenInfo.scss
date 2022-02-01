@@ -1,7 +1,7 @@
 @import "allVariable";
 
 .main {
-  padding: 0 80px;
+  padding: 0 clamp(2%,5vw,80px );
 }
 
 .breadCrumbs {
@@ -27,5 +27,64 @@
 }
 
 .productDetailsDiv {
-  border: 2px solid red;
+  border: 2px solid rgb(255, 0, 0);
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 20px;
+
+}
+.imageParentDiv {
+  flex: 5;
+  min-width: clamp(200px,20vw,490px);
+  border: 2px solid rgb(111, 0, 255);
+  img {
+    border: 2px solid rgb(51, 255, 0);
+    width: 100%;
+    height: 40vw;
+    min-height: 400px;
+    object-fit: contain;
+    // min-width: 200px;
+  }
+}
+.productDetails {
+  flex: 2.5;
+  min-width: 250px;
+
+  margin-left: auto;
+  font-size: 18px;
+  font-weight: 600;
+  .rating {
+    margin-top: 20px;
+  }
+  .price {
+    margin-top: 10px;
+  }
+  .description {
+    margin-top: 5px;
+    text-transform: capitalize;
+  }
+}
+.addtoCart {
+  flex: 2.5;
+  min-width: 250px;
+
+  border: 2px solid rgb(111, 0, 255);
+  width: 250px;
+  .price,
+  .stock {
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-between;
+  }
+  .addtoCartbutton {
+    display: flex;
+    button {
+      width: 100%;
+      padding: 10px 20px;
+      color: $primary-color;
+      border: 1px solid $primary-color;
+      background-color: gold;
+      border-radius: 5px;
+    }
+  }
 }

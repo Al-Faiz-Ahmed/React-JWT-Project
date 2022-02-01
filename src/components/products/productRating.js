@@ -1,9 +1,9 @@
 import React from "react";
 
-export default function ProductRating({ Rating,Reviews }) {
+export default function ProductRating({ Rating,Reviews,color }) {
   return (
     <>
-      <span>
+      <span style={{color:color === 'gold' ? 'gold' : '#fbfbfb'}}>
         <i
           className={
             Rating >= 1
@@ -15,7 +15,7 @@ export default function ProductRating({ Rating,Reviews }) {
           aria-hidden="true"
         ></i>
       </span>
-      <span>
+      <span style={{color:color === 'gold' ? 'gold' : '#fbfbfb'}}>
         <i className={
             Rating >= 2
             ? "fa fa-star"
@@ -24,7 +24,7 @@ export default function ProductRating({ Rating,Reviews }) {
             : "fa fa-star-o"
         } aria-hidden="true"></i>
       </span>
-      <span>
+      <span style={{color:color === 'gold' ? 'gold' : '#fbfbfb'}}>
         <i className={
             Rating >= 3
             ? "fa fa-star"
@@ -33,7 +33,7 @@ export default function ProductRating({ Rating,Reviews }) {
             : "fa fa-star-o"
         } aria-hidden="true"></i>
       </span>
-      <span>
+      <span style={{color:color === 'gold' ? 'gold' : '#fbfbfb'}}>
         <i className={
             Rating >= 4
             ? "fa fa-star"
@@ -42,7 +42,7 @@ export default function ProductRating({ Rating,Reviews }) {
             : "fa fa-star-o"
         } aria-hidden="true"></i>
       </span>
-      <span>
+      <span style={{color:color === 'gold' ? 'gold' : '#fbfbfb'}}>
         <i className={
             Rating >= 5
             ? "fa fa-star"
@@ -51,7 +51,7 @@ export default function ProductRating({ Rating,Reviews }) {
             : "fa fa-star-o"
         } aria-hidden="true"></i>
       </span>
-      <span style={{color:"gold",marginLeft:"10px"}}>{Reviews} reviews</span>
+      <span style={{color:color === 'gold' ? '#20283a' : 'gold',marginLeft:"10px"}}>{Reviews} reviews</span>
     </>
   );
 }
