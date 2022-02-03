@@ -1,14 +1,14 @@
 import React from "react";
-import "../css/homeNavbar.css";
+import styles from "../css/homeNavbar.module.css";
 import { Link } from "react-router-dom";
 export default function HomeNavbar() {
   return (
     <>
-      <header>
-        <nav>
-          <div className="brand">
+      <header className={styles.header}>
+        <nav className={styles.nav}>
+          <div className={styles.brand}>
             <h4>
-              <Link to="/" className="brandName defaultLink">
+              <Link to="/" className={`${styles.brandName} ${styles.defaultLink}`}>
                 amazona
               </Link>
             </h4>
@@ -16,10 +16,10 @@ export default function HomeNavbar() {
           <div>
             <ul className="ctasBtn">
               <li>
-                <Link to='/' className="defaultLink">Cart</Link>
+                <Link to='/' className={styles.defaultLink}>Cart</Link>
               </li>
               <li>
-                <Link to='/' className="defaultLink">Sign up</Link>
+                <Link to='/' className={styles.defaultLink}>Sign up</Link>
               </li>
             </ul>
           </div>

@@ -53,30 +53,6 @@ export default function ProductScreenInfo({ giveId }) {
               <button>Add to Cart</button>
             </div>
           </div>
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Et, dolorem
-          debitis nesciunt cupiditate atque sapiente dolorum repellendus est
-          impedit quia delectus, iusto quaerat minus in mollitia veniam
-          accusamus labore? Eius necessitatibus, at reiciendis obcaecati
-          officiis expedita accusamus eaque possimus nesciunt laborum numquam
-          maxime incidunt culpa eveniet minus soluta beatae ducimus voluptatem
-          enim consectetur hic. Optio laudantium quos maxime consequatur
-          voluptate esse, ullam debitis ipsam aliquid at dignissimos rerum
-          corrupti minus, itaque dolorum quod placeat ea quas. Sapiente tenetur,
-          nihil quas sit repellat sed aspernatur accusamus culpa. Sequi, quos
-          sunt! Cumque explicabo error asperiores aperiam incidunt provident
-          maxime suscipit veniam repudiandae perferendis voluptatum soluta
-          deserunt laudantium exercitationem necessitatibus nobis, consequuntur
-          quaerat nesciunt sint maiores harum, vero iusto. Illo culpa animi
-          necessitatibus laboriosam, expedita debitis atque? Aliquid recusandae
-          perspiciatis architecto ipsam qui mollitia dolores quaerat doloremque
-          consectetur optio, deserunt assumenda ad, facere sint error iure?
-          Voluptates, numquam nesciunt quas deserunt quidem iure. Quae suscipit
-          consequuntur eaque ut ea excepturi unde quasi maiores voluptate
-          expedita, exercitationem, impedit nulla amet! Itaque laudantium porro
-          magni. Atque eos sequi esse porro debitis. Repellendus fugiat tenetur
-          temporibus perspiciatis! Possimus accusantium nihil, harum ab suscipit
-          dicta fuga ipsum, autem fugit est deserunt? Autem vitae sint hic
-          dolores cum.
         </div>
       </div>
     </>

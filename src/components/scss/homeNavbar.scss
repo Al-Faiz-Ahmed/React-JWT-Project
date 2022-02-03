@@ -5,7 +5,7 @@
   color: $light-color;
 }
 
-header {
+.header {
   background: $primary-color;
   nav {
     height: 60px;
@@ -13,11 +13,13 @@ header {
   }
 }
 
-nav {
+.nav {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin: 0 80px;
+  margin:  0 clamp(2%, 5vw, 80px);
+  border: 1px solid red;
+
 
   .brand {
     .brandName {

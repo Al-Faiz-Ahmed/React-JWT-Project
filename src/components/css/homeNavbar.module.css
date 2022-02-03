@@ -3,16 +3,16 @@
   color: #fbfbfb;
 }
 
-header {
+.header {
   background: #20283a;
 }
 
-header nav {
+.header nav {
   height: 60px;
   color: white;
 }
 
-nav {
+.nav {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -22,14 +22,15 @@ nav {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  margin: 0 80px;
+  margin: 0 clamp(2%, 5vw, 80px);
+  border: 1px solid red;
 }
 
-nav .brand .brandName {
+.nav .brand .brandName {
   font-size: 26px;
 }
 
-nav ul {
+.nav ul {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -37,10 +38,10 @@ nav ul {
   padding: 0;
 }
 
-nav ul li {
+.nav ul li {
   margin-left: 20px;
 }
 
-nav ul li:nth-child(1) {
+.nav ul li:nth-child(1) {
   margin-left: 0px;
 }
