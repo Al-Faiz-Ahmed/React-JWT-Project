@@ -4,7 +4,8 @@ import ScrollToTop from "../components/scrolltoTop/scrolltoTop";
 import HomeScreen from "../Screens/jsx/homeScreen";
 import PoductDetails from "../Screens/jsx/productDetailScreen";
 
-export default () => {
+
+const ReactRouter = () => {
   return (
     <>
       <Router>
@@ -17,4 +18,5 @@ export default () => {
       </Router>
     </>
   );
-};
+}
+export default ReactRouter

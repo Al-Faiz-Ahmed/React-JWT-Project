@@ -23,7 +23,6 @@
       -ms-flex-pack: justify;
           justify-content: space-between;
   margin: 0 clamp(2%, 5vw, 80px);
-  border: 1px solid red;
 }
 
 .nav .brand .brandName {
