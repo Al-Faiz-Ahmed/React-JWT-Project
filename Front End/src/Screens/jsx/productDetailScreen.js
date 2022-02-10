@@ -8,6 +8,7 @@ export default function PoductDetails() {
   return (
     <>
       <header><HomeNavbar /></header>
+      
       <main>
         <ProductScreenInfo giveId={id}/>
       </main>

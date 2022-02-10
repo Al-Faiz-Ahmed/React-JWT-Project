@@ -1,27 +1,18 @@
-import React, { useState, useEffect } from "react";
+import React, {useEffect } from "react";
+import { useSelector,useDispatch } from "react-redux";
 import ProductCard from "./productCard";
 import styles from "../css/productCard.module.css";
-import axios from "axios";
 import LoadingSpinner from "../simple Components/loading";
 import MessageBox from "../simple Components/MessageBox";
+import { listProducts } from "../../Redux/product-actions";
 
 export default function ProductRow() {
-  const [productData, setProducts] = useState([]);
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(false);
-  useEffect(() => {
-    (async () => {
-      try {
-        const { data } = await axios.get("/api/products");
-        setLoading(true);
-        setProducts(data);
-      } catch (error) {
-        setLoading(true);
-        setError(error.message);
-        // console.log(error.message);
-      }
-    })();
-  }, []);
+  const {productsData,error,loading} = useSelector(state => state.products)
+  const dispatch = useDispatch();
+
+  useEffect(()=>{
+    dispatch(listProducts())
+  },[dispatch])
   return (
     <>
       <main className={styles.main}>
@@ -34,7 +25,7 @@ export default function ProductRow() {
               </span>
             </div>
           ) : !error ? (
-            productData.map((data, index) => {
+            productsData.map((data, index) => {
               return (
                 <ProductCard
                   key={data._id + index}

@@ -1,9 +1,13 @@
-import React from 'react';
+import React from "react";
 import ReactRouter from "./Config/reactRouter";
+import GlobalRedux from "./Redux/redux-store";
+
 function App() {
   return (
     <>
-      <ReactRouter />
+      <GlobalRedux>
+        <ReactRouter />
+      </GlobalRedux>
     </>
   );
 }
