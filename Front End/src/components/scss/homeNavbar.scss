@@ -31,7 +31,13 @@
     padding: 0;
     li {
       margin-left: 20px;
-
+      .badge{
+        color: #FFDBDB;
+        background-color:#B60000 ;
+        padding: 3px 10px;
+        margin-left: 5px;
+        border-radius:50% ;
+      }
       &:nth-child(1) {
         margin-left: 0px;
       }

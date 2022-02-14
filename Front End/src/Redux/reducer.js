@@ -1,7 +1,9 @@
 import { combineReducers } from "redux";
-import ProductListReducer,{ProductReducer} from "./productListReducer";
+import AddCartItemReducer from "./Child Reducers/addtoCartItemReducer";
+import ProductListReducer,{ProductReducer} from "./Child Reducers/productListReducer";
 
 export const reducers = combineReducers({
   products: ProductListReducer,
-  product:ProductReducer
+  product:ProductReducer,
+  cartItem:AddCartItemReducer
 });

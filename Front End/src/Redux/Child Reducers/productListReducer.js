@@ -5,7 +5,7 @@ import {
   PRODUCT_REQUEST,
   PRODUCT_SUCCESS,
   PRODUCT_ERROR,
-} from "./products-constants";
+} from "../Constants/products-constants";
 
 let productList = {
   productsData: [],

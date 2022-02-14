@@ -4,7 +4,7 @@ import ProductCard from "./productCard";
 import styles from "../css/productCard.module.css";
 import LoadingSpinner from "../simple Components/loading";
 import MessageBox from "../simple Components/MessageBox";
-import { listProducts } from "../../Redux/product-actions";
+import { listProducts } from "../../Redux/actions/product-actions";
 
 export default function ProductRow() {
   const {productsData,error,loading} = useSelector(state => state.products)

@@ -1,35 +1,44 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import { product } from "../../Redux/product-actions";
+import { product } from "../../Redux/actions/product-actions";
 // import productData from "../productsData/productsData";
 import styles from "../css/productScreenInfo.module.css";
 import ProductRating from "./productRating";
 import LoadingSpinner from "../simple Components/loading";
 import MessageBox from "../simple Components/MessageBox";
-export default function ProductScreenInfo({giveId}) {
-
+import { useNavigate } from "react-router-dom";
+export default function ProductScreenInfo(props) {
   const { productData, error, loading } = useSelector((state) => state.product);
+  const navigate = useNavigate()
+  const [qty,setQty] = useState(1)
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(product(giveId));
-  }, [dispatch,giveId]);
-  useEffect(()=>{
-    console.log('laoding',loading)
-    console.log('product',product)
-    console.log('error',error)
-  },[product])
+    dispatch(product(props.giveId));
+  }, [dispatch, props.giveId]);
   
+
+
+  function addToCartHandler(){
+   navigate(`/cart/${props.giveId}?qty=${qty}`)
+  }
+
   return (
     <>
       {!loading ? (
-            <div style={{ display: "flex", alignItems: "center",justifyContent:"center",marginTop:"20px"}}>
-              <LoadingSpinner />
-              <span style={{ marginLeft: "10px", fontSize: "20px" }}>
-                Loading..
-              </span>
-            </div>
-          
+        <div
+          style={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            marginTop: "20px",
+          }}
+        >
+          <LoadingSpinner />
+          <span style={{ marginLeft: "10px", fontSize: "20px" }}>
+            Loading..
+          </span>
+        </div>
       ) : !error ? (
         <div className={styles.main}>
           <div className={styles.breadCrumbs}>
@@ -72,17 +81,41 @@ export default function ProductScreenInfo({giveId}) {
                 </div>
                 <div className={styles.stock}>
                   <p>Status:</p>
-                  <p>In Stock</p>
+                  {productData.countInStock > 0 ? (
+                    <p>In Stock</p>
+                  ) : (
+                    <p style={{ color: "#FF5454" }}>Unavailable</p>
+                  )}
                 </div>
+
+                {productData.countInStock > 0 && (
+                  <div className={styles.price}>
+                    <p>Qty:</p>
+
+                    <select value={qty} onChange={(e) => {setQty(e.target.value)}}>
+                      {[...Array(productData.countInStock).keys()].map(
+                        (stockQty) => {
+                          return (
+                            <option value={stockQty + 1} key={stockQty + 1}>
+                              {stockQty + 1}
+                            </option>
+                          );
+                        }
+                      )}
+                    </select>
+                  </div>
+                )}
               </div>
-              <div className={styles.addtoCartbutton}>
-                <button>Add to Cart</button>
-              </div>
+              {productData.countInStock > 0 && (
+                <div className={styles.addtoCartbutton}>
+                  <button onClick={addToCartHandler}>Add to Cart</button>
+                </div>
+              )}
             </div>
           </div>
         </div>
       ) : (
-        <div className={styles.main} style={{marginTop:"20px"}}>
+        <div className={styles.main} style={{ marginTop: "20px" }}>
           <div className={styles.breadCrumbs}>
             <MessageBox>{error}</MessageBox>
           </div>
