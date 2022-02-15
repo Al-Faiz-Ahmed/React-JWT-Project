@@ -12,6 +12,7 @@ const ReactRouter = () => {
       <Router>
         <ScrollToTop>
           <Routes>
+            <Route path="/cart" element={<ProductCartScreen />} />
             <Route path="/cart/:id" element={<ProductCartScreen />} />
             <Route path="/products/:id" element={<PoductDetails />} />
             <Route path="/" element={<HomeScreen />} />

@@ -22,7 +22,7 @@ export default function HomeNavbar() {
           <div>
             <ul className="ctasBtn">
               <li>
-                <Link to="/" className={styles.defaultLink}>
+                <Link to="/cart" className={styles.defaultLink}>
                   Cart
                   {cartItems.length > 0 && <span className={styles.badge}>{cartItems.length}</span>}
                 </Link>

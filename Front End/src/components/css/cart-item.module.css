@@ -1,0 +1,117 @@
+.main {
+  padding: 0 clamp(2%, 5vw, 80px);
+}
+
+.main .heading {
+  margin-top: 20px;
+}
+
+.main .cartTable {
+  margin-top: 50px;
+  word-break: break-all;
+}
+
+.main .cartTable .table .cart {
+  margin: 15px 0px;
+  border-radius: 5px;
+  padding: 5px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border: 1px solid #20283a;
+}
+
+.main .cartTable .table .cart > div {
+  padding: 5px 10px;
+}
+
+.main .cartTable .table .cart .itemImage img {
+  width: 50px;
+  height: 70px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.main .cartTable .table .cart .itemName {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+
+.main .cartTable .table .cart .itemDetail {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.main .cartTable .table .cart .itemDetail .itemQty {
+  width: 100px;
+}
+
+.main .cartTable .table .cart .itemDetail .itemQty select {
+  width: 70px;
+  padding: 5px 10px;
+}
+
+.main .cartTable .table .cart .itemDetail .itemPrice {
+  width: 100px;
+}
+
+.main .cartTable .table .cart .delBtn button {
+  all: unset;
+  cursor: pointer;
+  color: grey;
+  -webkit-transition: 0.3s linear;
+  transition: 0.3s linear;
+}
+
+.main .cartTable .table .cart .delBtn button:hover {
+  color: #ff5454;
+}
+
+.main .cartTable .table .cart .delBtn button i {
+  font-size: 28px;
+}
+
+.subTotal {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  border: 1px solid red;
+  width: 100%;
+  padding: 10px clamp(2%, 5vw, 80px);
+}
+
+.subTotal .totalPrice {
+  border: 1px solid red;
+}
+
+@media (max-width: 576px) {
+  .itemDetail {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .itemDetail .itemQty {
+    -webkit-box-ordinal-group: 2;
+        -ms-flex-order: 1;
+            order: 1;
+    text-align: center;
+    width: -webkit-fit-content !important;
+    width: -moz-fit-content !important;
+    width: fit-content !important;
+  }
+  .itemDetail .itemPrice {
+    width: -webkit-fit-content !important;
+    width: -moz-fit-content !important;
+    width: fit-content !important;
+    text-align: center;
+  }
+}
