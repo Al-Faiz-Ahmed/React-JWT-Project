@@ -7,7 +7,6 @@
   }
   .cartTable {
     margin-top: 50px;
-    word-break: break-all;
     .table {
       .cart {
         margin: 15px 0px;
@@ -61,16 +60,51 @@
     }
   }
 }
-.subTotal {
+.fixedPosition {
   position: fixed;
   left: 0;
   bottom: 0;
-  border: 1px solid red;
   width: 100%;
+  z-index: 1;
+  background-color: #ffffff;
   padding: 10px clamp(2%, 5vw, 80px);
 
-  .totalPrice {
-    border: 1px solid red;
+  > div {
+    > div {
+      border-top: 2px solid $primary-color;
+      padding-top: 10px;
+      display: flex;
+      justify-content: space-between;
+      > div {
+        display: flex;
+        align-items: center;
+      }
+      .subTotalheading{
+        h3{
+          text-decoration:underline gold 5px;
+        }
+      }
+      .itemsNumber,.totalPrice{
+        p{
+          margin-left: 5px;
+          font-size: 18px;
+          font-weight: 600;
+        }
+      }
+      .checkout{
+        button {
+          outline:  2px solid $primary-color ;
+          background-color: gold;
+          border: none;
+          font-size: 18px;
+          font-weight: bold;
+          width: 100%;
+          padding: 10px 15px;
+          border-radius: 6px;
+          cursor: pointer;
+        }
+      }
+    }
   }
 }
 
@@ -80,12 +114,22 @@
     align-items: center;
     .itemQty {
       order: 1;
+      margin-top: 10px;
       text-align: center;
       width: fit-content !important;
     }
     .itemPrice {
       width: fit-content !important;
       text-align: center;
+    }
+  }
+  .subTotal {
+    > div {
+      flex-direction: column;
+      > div {
+        margin-top: 10px;
+        justify-content: space-between;
+      }
     }
   }
 }

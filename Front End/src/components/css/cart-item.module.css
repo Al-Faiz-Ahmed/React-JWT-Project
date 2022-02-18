@@ -8,7 +8,6 @@
 
 .main .cartTable {
   margin-top: 50px;
-  word-break: break-all;
 }
 
 .main .cartTable .table .cart {
@@ -76,17 +75,57 @@
   font-size: 28px;
 }
 
-.subTotal {
+.fixedPosition {
   position: fixed;
   left: 0;
   bottom: 0;
-  border: 1px solid red;
   width: 100%;
+  z-index: 1;
+  background-color: #ffffff;
   padding: 10px clamp(2%, 5vw, 80px);
 }
 
-.subTotal .totalPrice {
-  border: 1px solid red;
+.fixedPosition > div > div {
+  border-top: 2px solid #20283a;
+  padding-top: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.fixedPosition > div > div > div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.fixedPosition > div > div .subTotalheading h3 {
+  -webkit-text-decoration: underline gold 5px;
+          text-decoration: underline gold 5px;
+}
+
+.fixedPosition > div > div .itemsNumber p, .fixedPosition > div > div .totalPrice p {
+  margin-left: 5px;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.fixedPosition > div > div .checkout button {
+  outline: 2px solid #20283a;
+  background-color: gold;
+  border: none;
+  font-size: 18px;
+  font-weight: bold;
+  width: 100%;
+  padding: 10px 15px;
+  border-radius: 6px;
+  cursor: pointer;
 }
 
 @media (max-width: 576px) {
@@ -103,6 +142,7 @@
     -webkit-box-ordinal-group: 2;
         -ms-flex-order: 1;
             order: 1;
+    margin-top: 10px;
     text-align: center;
     width: -webkit-fit-content !important;
     width: -moz-fit-content !important;
@@ -113,5 +153,17 @@
     width: -moz-fit-content !important;
     width: fit-content !important;
     text-align: center;
+  }
+  .subTotal > div {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .subTotal > div > div {
+    margin-top: 10px;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
   }
 }
