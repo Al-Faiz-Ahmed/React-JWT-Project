@@ -1,28 +1,33 @@
 import express from "express";
 import data from "./productsData.js";
-import cors from 'cors';
-var port = process.env.port || 5000;
+import cors from "cors";
+import mongoose from "mongoose";
+import userRouter from "./userRouter/userRouter.js";
+import dotenv from "dotenv";
+import productsRouter from "./userRouter/productRouter.js";
+
 var app = express();
 
+dotenv.config();
 
-app.get('/',(req,res)=>{
-  res.send('server started')
-})
+var port = process.env.port || 5000;
 
-app.get('/api/products',(req,res)=>{
-  res.json(data)
-})
-app.get('/api/products/:id',(req,res)=>{
-  // res.json(data)
-  const product = data.find(x => x._id === req.params.id)
-  if(product){
-    res.send(product)
-  }else{
-    res.status(404).send({message:"Product not Found"})
-  }
-})
+mongoose.connect(process.env.mongoDB__URL || "mongodb://localhost/amazona");
+
+app.get("/", (req, res) => {
+  res.send("server started");
+});
+
+app.use("/api/users", userRouter);
+app.use("/api/products",productsRouter)
 
 
-app.listen(port,()=>{
-  console.log(`================ Sever Started at http://localhost:${port} ================`)
-})
+app.use((error, req, res, next) => {
+  res.status(500).send({ message: error.message });
+});
+
+app.listen(port, () => {
+  console.log(
+    `================ Sever Started at http://localhost:${port} ================`
+  );
+});

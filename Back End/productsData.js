@@ -1,7 +1,6 @@
 import bcrypt from 'bcryptjs'
-const productsDetails = [
+ const productsDetails = [
   {
-    _id: "1",
     name: "Adidas Shirt and Pant",
     category: "Shirts",
     image: "product 1.png",
@@ -13,7 +12,6 @@ const productsDetails = [
     description: "high quality product",
   },
   {
-    _id: "2",
     name: "Reliance Bagpack",
     category: "Bags",
     image: "product 2.png",
@@ -25,7 +23,6 @@ const productsDetails = [
     description: "high quality product",
   },
   {
-    _id: "3",
     name: "lacoste Shorts",
     category: "Pants",
     image: "product 3.png",
@@ -37,7 +34,6 @@ const productsDetails = [
     description: "high quality product",
   },
   {
-    _id: "4",
     name: "Nike summer T-shirt",
     category: "Shirts",
     image: "product 4.png",
@@ -49,7 +45,6 @@ const productsDetails = [
     description: "high quality product",
   },
   {
-    _id: "5",
     name: "Nike Denim shirt",
     category: "Shirts",
     image: "product 5.png",
@@ -61,7 +56,6 @@ const productsDetails = [
     description: "high quality product",
   },
   {
-    _id: "6",
     name: "Armour Denim Shorts",
     category: "Pants",
     image: "product 6.png",
@@ -73,7 +67,7 @@ const productsDetails = [
     description: "high quality product",
   },
 ];
-const users = [
+export const users = [
   {
     name:"Faiz Ahmed",
     email:"faizan@example.com",

@@ -98,7 +98,7 @@ export default function CartItem() {
                     <p>
                       {cartItems.reduce(
                         (accumulate, currentValue) =>
-                          accumulate + currentValue.qty,
+                          accumulate + Number(currentValue.qty),
                         0
                       )}
                     </p>
@@ -109,7 +109,7 @@ export default function CartItem() {
                       $
                       {cartItems.reduce(
                         (accumulate, currentValue) =>
-                          accumulate + currentValue.qty * currentValue.price,
+                          accumulate + Number(currentValue.qty) * currentValue.price,
                         0
                       )}
                       .00
