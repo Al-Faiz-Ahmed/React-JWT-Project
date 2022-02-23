@@ -1,0 +1,105 @@
+@import "allVariable";
+.main {
+  margin-top: 40px;
+  padding: 0 clamp(2%, 5vw, 80px);
+  > div {
+    // border: 2px solid red;
+    display: flex;
+    flex-direction: column;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+}
+
+.name {
+  margin-top: 30px;
+  font-size: 18px;
+  font-weight: 600;
+  .inputDiv {
+    // border: 2px solid red;
+    margin-top: 10px;
+
+    input {
+      border-radius: 5px;
+      border: 1px solid #000;
+      font-size: 18px;
+      outline: none;
+      padding: 7px;
+      width: 100%;
+    }
+  }
+}
+.email {
+  margin-top: 20px;
+  font-size: 18px;
+  font-weight: 600;
+  .inputDiv {
+    // border: 2px solid red;
+    margin-top: 10px;
+
+    input {
+      border-radius: 5px;
+      border: 1px solid #000;
+      font-size: 18px;
+      outline: none;
+      padding: 7px;
+      width: 100%;
+    }
+  }
+}
+.password {
+  margin-top: 20px;
+  font-size: 18px;
+  font-weight: 600;
+  .inputDiv {
+    // border: 2px solid red;
+    margin-top: 10px;
+    font-size: 18px;
+    font-weight: 600;
+    input {
+      border-radius: 5px;
+      border: 1px solid #000;
+      font-size: 18px;
+      outline: none;
+      padding: 7px;
+      width: 100%;
+    }
+  }
+}
+.confirm__password {
+  margin-top: 20px;
+  font-size: 18px;
+  font-weight: 600;
+  .inputDiv {
+    // border: 2px solid red;
+    margin-top: 10px;
+    font-size: 18px;
+    font-weight: 600;
+    input {
+      border-radius: 5px;
+      border: 1px solid #000;
+      font-size: 18px;
+      outline: none;
+      padding: 7px;
+      width: 100%;
+    }
+  }
+}
+.button {
+  margin-top: 20px;
+  button {
+    width: 100%;
+    padding: 7px;
+    font-size: 18px;
+    font-weight: bold;
+    background-color: gold;
+    outline: none;
+    border-radius: 5px;
+    cursor: pointer;
+    border: 1px solid #000;
+  }
+}
+.createAccount {
+  margin-top: 20px;
+}
+

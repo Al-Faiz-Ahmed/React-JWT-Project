@@ -1,0 +1,76 @@
+.main {
+  margin-top: 40px;
+  padding: 0 clamp(2%, 5vw, 80px);
+}
+
+.main > div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.email {
+  margin-top: 30px;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.email .inputDiv {
+  margin-top: 10px;
+}
+
+.email .inputDiv input {
+  border-radius: 5px;
+  border: 1px solid #000;
+  font-size: 18px;
+  outline: none;
+  padding: 7px;
+  width: 100%;
+}
+
+.password {
+  margin-top: 20px;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.password .inputDiv {
+  margin-top: 10px;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.password .inputDiv input {
+  border-radius: 5px;
+  border: 1px solid #000;
+  font-size: 18px;
+  outline: none;
+  padding: 7px;
+  width: 100%;
+}
+
+.button {
+  margin-top: 20px;
+}
+
+.button button {
+  width: 100%;
+  padding: 7px;
+  font-size: 18px;
+  font-weight: bold;
+  background-color: gold;
+  outline: none;
+  border-radius: 5px;
+  cursor: pointer;
+  border: 1px solid #000;
+}
+
+.createAccount {
+  margin-top: 20px;
+}
