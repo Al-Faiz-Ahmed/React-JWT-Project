@@ -23,6 +23,37 @@
 
 .email .inputDiv {
   margin-top: 10px;
+  position: relative;
+}
+
+.email .inputDiv span {
+  position: absolute;
+  right: 0;
+  top: 105%;
+  background: #FFBABA;
+  color: #BB0000;
+  width: 60%;
+  font-size: 14px;
+  padding: 5px 10px;
+  border-radius: 5px;
+  z-index: 50;
+}
+
+.email .inputDiv span i {
+  margin-right: 5px;
+}
+
+.email .inputDiv span::after {
+  content: "";
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  top: -5px;
+  right: 20px;
+  z-index: -1;
+  background: #FFBABA;
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
 }
 
 .email .inputDiv input {
@@ -44,6 +75,7 @@
   margin-top: 10px;
   font-size: 18px;
   font-weight: 600;
+  position: relative;
 }
 
 .password .inputDiv input {

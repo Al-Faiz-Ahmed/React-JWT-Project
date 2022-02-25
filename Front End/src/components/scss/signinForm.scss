@@ -18,7 +18,33 @@
   .inputDiv {
     // border: 2px solid red;
     margin-top: 10px;
-
+    position: relative;
+    span {
+      position: absolute;
+      right: 0;
+      top: 105%;
+      background: $danger-color-body;
+      color:$danger-color-text;
+      width: 60%;
+      font-size: 14px;
+      padding: 5px 10px;
+      border-radius: 5px;
+      z-index: 50;
+      i{
+        margin-right: 5px;
+      }
+      &::after {
+        content: "";
+        position: absolute;
+        width: 20px;
+        height: 20px;
+        top: -5px;
+        right: 20px;
+        z-index: -1;
+        background: $danger-color-body;
+        transform: rotate(45deg);
+      }
+    }
     input {
       border-radius: 5px;
       border: 1px solid #000;
@@ -38,6 +64,8 @@
     margin-top: 10px;
     font-size: 18px;
     font-weight: 600;
+    position: relative;
+
     input {
       border-radius: 5px;
       border: 1px solid #000;

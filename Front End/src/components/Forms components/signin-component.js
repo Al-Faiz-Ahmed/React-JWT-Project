@@ -1,8 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import styles from "../css/signinForm.module.css";
 
 export default function SigninComp() {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
   return (
     <>
       <main className={`${styles.main}`}>
@@ -14,7 +17,17 @@ export default function SigninComp() {
             <label htmlFor="email">
               <div>Email:</div>
               <div className={styles.inputDiv}>
-                <input type="email" id="email" placeholder="Enter Email"/>
+                <span>
+                <i className="fa fa-exclamation-circle" aria-hidden="true"></i>
+                  Email is not Valid.
+                  </span>
+                <input
+                  type="email"
+                  id="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  placeholder="Enter Email"
+                />
               </div>
             </label>
           </div>
@@ -22,15 +35,24 @@ export default function SigninComp() {
             <label htmlFor="password">
               <div>Password:</div>
               <div className={styles.inputDiv}>
-                <input type="password" id="password" placeholder="Enter Password"/>
+                <span></span>
+                <input
+                  type="password"
+                  id="password"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  placeholder="Enter Password"
+                />
               </div>
             </label>
           </div>
           <div className={styles.button}>
-              <button>Sign in</button>
+            <button>Sign in</button>
           </div>
           <div className={styles.createAccount}>
-              <p>New Customer? <Link to='/' >Create New Account</Link></p>
+            <p>
+              New Customer? <Link to="/">Create New Account</Link>
+            </p>
           </div>
         </div>
       </main>
