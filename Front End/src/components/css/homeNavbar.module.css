@@ -42,8 +42,8 @@
 }
 
 .nav ul li .badge {
-  color: #FFDBDB;
-  background-color: #B60000;
+  color: #ffdbdb;
+  background-color: #b60000;
   padding: 3px 10px;
   margin-left: 5px;
   border-radius: 50%;
@@ -51,4 +51,31 @@
 
 .nav ul li:nth-child(1) {
   margin-left: 0px;
+}
+
+.nav ul .nameLink {
+  cursor: pointer;
+  position: relative;
+}
+
+.nav ul .dropdownContent {
+  display: none;
+}
+
+.nav ul .nameLink:hover .dropdownContent {
+  display: block;
+  width: 100px;
+  position: absolute;
+  top: 100%;
+  right: 0;
+}
+
+.nav ul .nameLink:hover .dropdownContent a {
+  display: block;
+  border-radius: 6px;
+  margin-top: 10px;
+  padding: 10px 15px;
+  background-color: #20283a;
+  text-decoration: none;
+  color: #fbfbfb;
 }

@@ -31,7 +31,6 @@ userRouter.post(
   asyncHandler(async (req, res) => {
     try {
       const user = await User.findOne({ email: req.body.email });
-      console.log(user);
       if (user) {
         if (bcrypt.compareSync(req.body.password, user.password)) {
           res.send({
@@ -52,5 +51,19 @@ userRouter.post(
     }
   })
 );
-
+userRouter.post('/register',asyncHandler(async(req,res)=>{
+  const user = new User({
+    name:req.body.name,
+    email:req.body.email,
+    password:bcrypt.hashSync(req.body.password,8)
+  })
+  const createdeUser = await user.save()
+  res.send({
+    _id: createdeUser._id,
+    name: createdeUser.name,
+    isAdmin: createdeUser.isAdmin,
+    email: createdeUser.email,
+    token: generateToken(createdeUser),
+  })
+}))
 export default userRouter;

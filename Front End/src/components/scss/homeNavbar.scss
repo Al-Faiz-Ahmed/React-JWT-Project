@@ -17,8 +17,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin:  0 clamp(2%, 5vw, 80px);
-
+  margin: 0 clamp(2%, 5vw, 80px);
 
   .brand {
     .brandName {
@@ -31,15 +30,38 @@
     padding: 0;
     li {
       margin-left: 20px;
-      .badge{
-        color: #FFDBDB;
-        background-color:#B60000 ;
+      .badge {
+        color: #ffdbdb;
+        background-color: #b60000;
         padding: 3px 10px;
         margin-left: 5px;
-        border-radius:50% ;
+        border-radius: 50%;
       }
       &:nth-child(1) {
         margin-left: 0px;
+      }
+    }
+    .nameLink {
+      cursor: pointer;
+      position: relative;
+    }
+    .dropdownContent {
+      display: none;
+    }
+    .nameLink:hover .dropdownContent {
+      display: block;
+      width: 100px;
+      position: absolute;
+      top: 100%;
+      right: 0;
+      a {
+        display: block;
+        border-radius: 6px;
+        margin-top: 10px;
+        padding: 10px 15px;
+        background-color: $primary-color;
+        text-decoration: none;
+        color: $light-color;
       }
     }
   }
