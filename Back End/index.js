@@ -24,6 +24,10 @@ app.use("/api/users", userRouter);
 app.use("/api/products", productsRouter);
 
 app.use((error, req, res, next) => {
+  if(error.code === 11000){
+    res.status(500).send({ message: 'Email Address already Registered.' });
+  }
+    console.log(error.code)
   res.status(500).send({ message: error.message });
 });
 

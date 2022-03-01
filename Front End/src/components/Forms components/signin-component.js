@@ -19,7 +19,10 @@ export default function SigninComp() {
     if (userInfo) {
       navigate("/");
     }
+
   }, [userInfo]);
+
+
   function signinUser(e) {
     e.preventDefault();
     if (email) {
@@ -93,7 +96,7 @@ export default function SigninComp() {
             </div>
             <div className={styles.createAccount}>
               <p>
-                New Customer? <Link to="/">Create New Account</Link>
+                New Customer? <Link to="/register">Create New Account</Link>
               </p>
             </div>
           </form>

@@ -85,6 +85,47 @@
     }
   }
 }
+
+
+.inputDiv {
+  margin-top: 10px;
+  position: relative;
+  span {
+    position: absolute;
+    right: 0;
+    bottom: 110%;
+    background: $danger-color-body;
+    color:$danger-color-text;
+    width: 60%;
+    font-size: 14px;
+    padding: 5px 10px;
+    border-radius: 5px;
+    z-index: 50;
+    i{
+      margin-right: 5px;
+    }
+    &::after {
+      content: "";
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      bottom: -5px;
+      right: 20px;
+      z-index: -1;
+      background: $danger-color-body;
+      transform: rotate(45deg);
+    }
+  }
+  input {
+    border-radius: 5px;
+    border: 1px solid #000;
+    font-size: 18px;
+    outline: none;
+    padding: 7px;
+    width: 100%;
+  }
+}
+
 .button {
   margin-top: 20px;
   button {

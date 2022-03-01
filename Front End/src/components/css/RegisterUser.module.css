@@ -95,6 +95,50 @@
   width: 100%;
 }
 
+.inputDiv {
+  margin-top: 10px;
+  position: relative;
+}
+
+.inputDiv span {
+  position: absolute;
+  right: 0;
+  bottom: 110%;
+  background: #FFBABA;
+  color: #BB0000;
+  width: 60%;
+  font-size: 14px;
+  padding: 5px 10px;
+  border-radius: 5px;
+  z-index: 50;
+}
+
+.inputDiv span i {
+  margin-right: 5px;
+}
+
+.inputDiv span::after {
+  content: "";
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  bottom: -5px;
+  right: 20px;
+  z-index: -1;
+  background: #FFBABA;
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+}
+
+.inputDiv input {
+  border-radius: 5px;
+  border: 1px solid #000;
+  font-size: 18px;
+  outline: none;
+  padding: 7px;
+  width: 100%;
+}
+
 .button {
   margin-top: 20px;
 }
