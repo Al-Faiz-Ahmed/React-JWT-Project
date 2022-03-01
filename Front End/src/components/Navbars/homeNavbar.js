@@ -5,6 +5,7 @@ import { useSelector } from "react-redux";
 
 export default function HomeNavbar() {
   let { cartItems } = useSelector((state) => state.cartItem);
+  let { userInfo } = useSelector((state) => state.signinUser);
   return (
     <>
       <header className={styles.header}>
@@ -24,14 +25,24 @@ export default function HomeNavbar() {
               <li>
                 <Link to="/cart" className={styles.defaultLink}>
                   Cart
-                  {cartItems.length > 0 && <span className={styles.badge}>{cartItems.length}</span>}
+                  {cartItems.length > 0 && (
+                    <span className={styles.badge}>{cartItems.length}</span>
+                  )}
                 </Link>
               </li>
-              <li>
-                <Link to="/" className={styles.defaultLink}>
-                  Sign up
-                </Link>
-              </li>
+              {userInfo ? (
+                <li>
+                  <Link to="#" className={styles.defaultLink}>
+                    {userInfo.name.slice(0, 5)}...
+                  </Link>
+                </li>
+              ) : (
+                <li>
+                  <Link to="/signin" className={styles.defaultLink}>
+                    Sign in
+                  </Link>
+                </li>
+              )}
             </ul>
           </div>
         </nav>

@@ -21,15 +21,21 @@
   font-weight: 600;
 }
 
-.email .inputDiv {
+.password {
+  margin-top: 20px;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.inputDiv {
   margin-top: 10px;
   position: relative;
 }
 
-.email .inputDiv span {
+.inputDiv span {
   position: absolute;
   right: 0;
-  top: 105%;
+  bottom: 110%;
   background: #FFBABA;
   color: #BB0000;
   width: 60%;
@@ -39,16 +45,16 @@
   z-index: 50;
 }
 
-.email .inputDiv span i {
+.inputDiv span i {
   margin-right: 5px;
 }
 
-.email .inputDiv span::after {
+.inputDiv span::after {
   content: "";
   position: absolute;
   width: 20px;
   height: 20px;
-  top: -5px;
+  bottom: -5px;
   right: 20px;
   z-index: -1;
   background: #FFBABA;
@@ -56,29 +62,7 @@
           transform: rotate(45deg);
 }
 
-.email .inputDiv input {
-  border-radius: 5px;
-  border: 1px solid #000;
-  font-size: 18px;
-  outline: none;
-  padding: 7px;
-  width: 100%;
-}
-
-.password {
-  margin-top: 20px;
-  font-size: 18px;
-  font-weight: 600;
-}
-
-.password .inputDiv {
-  margin-top: 10px;
-  font-size: 18px;
-  font-weight: 600;
-  position: relative;
-}
-
-.password .inputDiv input {
+.inputDiv input {
   border-radius: 5px;
   border: 1px solid #000;
   font-size: 18px;

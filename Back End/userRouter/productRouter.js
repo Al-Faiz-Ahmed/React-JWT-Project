@@ -20,7 +20,6 @@ productsRouter.get('/:id',asyncHandler( async(req,res)=>{
     try{
         let product = await Products.findById(req.params.id)
         res.send(product)
-        
     }catch(err){
         res.status(404).send({message:"Product not Found."})
     }

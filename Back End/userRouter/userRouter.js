@@ -3,19 +3,20 @@ import User from "../models/userModel.js";
 import { users } from "../productsData.js";
 import asyncHandler from "express-async-handler";
 import bcrypt from "bcryptjs";
-import jwt from 'jsonwebtoken'
+import jwt from "jsonwebtoken";
 const userRouter = express.Router();
 
-
-
-
-function generateToken(user){
-  return jwt.sign({
-    _id:user._id,
-    name:user.name,
-    isAdmin:user.isAdmin,
-    email:user.email,
-  },"secret_key",{expiresIn:"30d"})
+function generateToken(user) {
+  return jwt.sign(
+    {
+      _id: user._id,
+      name: user.name,
+      isAdmin: user.isAdmin,
+      email: user.email,
+    },
+    "secret_key",
+    { expiresIn: "30d" }
+  );
 }
 userRouter.get(
   "/seed",
@@ -28,23 +29,26 @@ userRouter.get(
 userRouter.post(
   "/signin",
   asyncHandler(async (req, res) => {
-    const user = await User.findOne({ email: req.body.email });
-    console.log(user)
-    if (user) {
-      if (bcrypt.compareSync(req.body.password, user.password)) {
-        res.send({ 
-          _id:user._id,
-          name:user.name,
-          isAdmin:user.isAdmin,
-          email:user.email,
-          token:generateToken(user),
-        })
-      }else{
-        res.send({message:"Password not matched."})
-
+    try {
+      const user = await User.findOne({ email: req.body.email });
+      console.log(user);
+      if (user) {
+        if (bcrypt.compareSync(req.body.password, user.password)) {
+          res.send({
+            _id: user._id,
+            name: user.name,
+            isAdmin: user.isAdmin,
+            email: user.email,
+            token: generateToken(user),
+          });
+        } else {
+          throw "Password not matched.";
+        }
+      } else {
+        throw "User not Registered.";
       }
-    }else{
-      res.send({message:"User not Found."})
+    } catch (error) {
+      res.status(401).send({ message: error });
     }
   })
 );

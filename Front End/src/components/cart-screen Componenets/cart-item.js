@@ -21,10 +21,12 @@ export default function CartItem() {
         </div>
         {cartItems.length === 0 ? (
           <MessageBox>
+            
             No items in Cart To Shown.
-            <div>
+            <br/>
+            <br/>
               <Link to="/">Go for Shopping</Link>
-            </div>
+            
           </MessageBox>
         ) : (
           <>
