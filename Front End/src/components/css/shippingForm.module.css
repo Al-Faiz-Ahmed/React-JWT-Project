@@ -1,0 +1,94 @@
+.main {
+  margin-top: 10px;
+  padding: 0 clamp(2%, 5vw, 80px);
+}
+
+.formStarting {
+  max-width: 600px;
+  margin: 0 auto;
+  margin-top: 40px;
+}
+
+.formStarting .form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.formStarting .form .fullname {
+  margin-top: 50px !important;
+}
+
+.formStarting .form .fullname,
+.formStarting .form .address,
+.formStarting .form .city,
+.formStarting .form .postalCode,
+.formStarting .form .country {
+  margin-top: 20px;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.formStarting .form .inputDiv {
+  margin-top: 10px;
+  position: relative;
+}
+
+.formStarting .form .inputDiv span {
+  position: absolute;
+  right: 0;
+  bottom: 110%;
+  background: #FFBABA;
+  color: #BB0000;
+  width: 60%;
+  font-size: 14px;
+  padding: 5px 10px;
+  border-radius: 5px;
+  z-index: 50;
+}
+
+.formStarting .form .inputDiv span i {
+  margin-right: 5px;
+}
+
+.formStarting .form .inputDiv span::after {
+  content: "";
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  bottom: -5px;
+  right: 20px;
+  z-index: -1;
+  background: #FFBABA;
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+}
+
+.formStarting .form .inputDiv input {
+  border-radius: 5px;
+  border: 1px solid #000;
+  font-size: 18px;
+  outline: none;
+  padding: 7px;
+  width: 100%;
+}
+
+.formStarting .form .button {
+  margin: 20px 0px;
+}
+
+.formStarting .form .button button {
+  width: 100%;
+  padding: 7px;
+  font-size: 18px;
+  font-weight: bold;
+  background-color: gold;
+  outline: none;
+  border-radius: 5px;
+  cursor: pointer;
+  border: 1px solid #000;
+}

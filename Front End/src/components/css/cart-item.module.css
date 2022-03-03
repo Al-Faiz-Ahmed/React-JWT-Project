@@ -128,6 +128,11 @@
   cursor: pointer;
 }
 
+.fixedPosition > div > div .checkout button a {
+  text-decoration: none;
+  color: #000;
+}
+
 @media (max-width: 576px) {
   .itemDetail {
     -webkit-box-orient: vertical;

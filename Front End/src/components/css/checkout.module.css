@@ -1,0 +1,22 @@
+.progress {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+.pending {
+  padding-top: 8px;
+  border-top: 5px solid #c8c8c8;
+  color: #c8c8c8;
+  -webkit-box-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+}
+
+.done {
+  padding-top: 8px;
+  -webkit-box-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  border-top: 5px solid #20283a;
+  color: #20283a;
+}

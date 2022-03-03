@@ -118,7 +118,7 @@ export default function CartItem() {
                     </p>
                   </div>
                   <div className={styles.checkout}>
-                    <button>Checkout</button>
+                    <button><Link to="/shipping">Checkout</Link></button>
                   </div>
                 </div>
               </div>

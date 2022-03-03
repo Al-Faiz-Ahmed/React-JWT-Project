@@ -1,0 +1,80 @@
+@import "allVariable";
+.main {
+  margin-top: 10px;
+  padding: 0 clamp(2%, 5vw, 80px);
+}
+.formStarting {
+  max-width: 600px;
+  margin: 0 auto;
+  margin-top: 40px;
+  .form {
+    display: flex;
+    flex-direction: column;
+
+    .fullname {
+      margin-top: 50px !important;
+    }
+    .fullname,
+    .address,
+    .city,
+    .postalCode,
+    .country {
+      margin-top: 20px;
+      font-size: 18px;
+      font-weight: 600;
+    }
+
+    .inputDiv {
+      margin-top: 10px;
+      position: relative;
+      span {
+        position: absolute;
+        right: 0;
+        bottom: 110%;
+        background: $danger-color-body;
+        color: $danger-color-text;
+        width: 60%;
+        font-size: 14px;
+        padding: 5px 10px;
+        border-radius: 5px;
+        z-index: 50;
+        i {
+          margin-right: 5px;
+        }
+        &::after {
+          content: "";
+          position: absolute;
+          width: 20px;
+          height: 20px;
+          bottom: -5px;
+          right: 20px;
+          z-index: -1;
+          background: $danger-color-body;
+          transform: rotate(45deg);
+        }
+      }
+      input {
+        border-radius: 5px;
+        border: 1px solid #000;
+        font-size: 18px;
+        outline: none;
+        padding: 7px;
+        width: 100%;
+      }
+    }
+    .button {
+      margin: 20px 0px;
+      button {
+        width: 100%;
+        padding: 7px;
+        font-size: 18px;
+        font-weight: bold;
+        background-color: gold;
+        outline: none;
+        border-radius: 5px;
+        cursor: pointer;
+        border: 1px solid #000;
+      }
+    }
+  }
+}

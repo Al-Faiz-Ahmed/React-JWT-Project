@@ -1,0 +1,37 @@
+@import "allVariable";
+.main {
+  margin-top: 10px;
+  padding: 0 clamp(2%, 5vw, 80px);
+}
+.formStarting {
+  max-width: 600px;
+  margin: 0 auto;
+  margin-top: 40px;
+ 
+}
+.inputDiv {
+  margin-top: 20px;
+  display: flex;
+  width: fit-content;
+  align-items: center;
+  position: relative;
+  p{
+  margin-left: 8px;
+  font-size: 18px;
+  font-weight: 600;
+  }
+}
+.button {
+  margin-top: 20px;
+  button {
+    width: 100%;
+    padding: 7px;
+    font-size: 18px;
+    font-weight: bold;
+    background-color: gold;
+    outline: none;
+    border-radius: 5px;
+    cursor: pointer;
+    border: 1px solid #000;
+  }
+}

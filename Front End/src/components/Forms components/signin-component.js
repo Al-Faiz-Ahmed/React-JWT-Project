@@ -1,27 +1,25 @@
 import React, { useEffect, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate  } from "react-router-dom";
 import { user_signin } from "../../Redux/actions/user-auth-actions";
 import styles from "../css/signinForm.module.css";
 import AuthenticationError from "../simple Components/authenticationError";
 import { useDispatch, useSelector } from "react-redux";
+import MessageBox from "../simple Components/MessageBox";
 
 export default function SigninComp() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const { userInfo } = useSelector((state) => state.signinUser);
+  const { userInfo, error } = useSelector((state) => state.signinUser);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
   const [emailError, setEmailError] = useState("");
   const [passwordError, setPasswordError] = useState("");
-
   useEffect(() => {
-    if (userInfo) {
-      navigate("/");
+    if(userInfo){
+      navigate('/shipping')
     }
-
   }, [userInfo]);
-
 
   function signinUser(e) {
     e.preventDefault();
@@ -48,59 +46,67 @@ export default function SigninComp() {
   return (
     <>
       <main className={`${styles.main}`}>
-        <div>
-          <form className={styles.form}>
-            <div className={styles.heading}>
-              <h2>Sign in</h2>
+        {error === "Request failed with status code 500" ? (
+          <div className={styles.main} style={{ marginTop: "20px" }}>
+            <div className={styles.breadCrumbs}>
+              <MessageBox>{error}</MessageBox>
             </div>
-            <div className={styles.email}>
-              <label htmlFor="email">
-                <div>Email:</div>
+          </div>
+        ) : (
+          <div>
+            <form className={styles.form}>
+              <div className={styles.heading}>
+                <h2>Sign in</h2>
+              </div>
+              <div className={styles.email}>
+                <label htmlFor="email">
+                  <div>Email:</div>
 
-                <div className={styles.inputDiv}>
-                  {emailError && (
-                    <AuthenticationError>{emailError}</AuthenticationError>
-                  )}
-                  <input
-                    autoComplete="email"
-                    type="email"
-                    id="email"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    placeholder="Enter Email"
-                  />
-                </div>
-              </label>
-            </div>
-            <div className={styles.password}>
-              <label htmlFor="password">
-                <div>Password:</div>
-                <div className={styles.inputDiv}>
-                  {passwordError && (
-                    <AuthenticationError>{passwordError}</AuthenticationError>
-                  )}
+                  <div className={styles.inputDiv}>
+                    {emailError && (
+                      <AuthenticationError>{emailError}</AuthenticationError>
+                    )}
+                    <input
+                      autoComplete="email"
+                      type="email"
+                      id="email"
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
+                      placeholder="Enter Email"
+                    />
+                  </div>
+                </label>
+              </div>
+              <div className={styles.password}>
+                <label htmlFor="password">
+                  <div>Password:</div>
+                  <div className={styles.inputDiv}>
+                    {passwordError && (
+                      <AuthenticationError>{passwordError}</AuthenticationError>
+                    )}
 
-                  <input
-                    type="password"
-                    id="password"
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                    placeholder="Enter Password"
-                    autoComplete="current-password"
-                  />
-                </div>
-              </label>
-            </div>
-            <div className={styles.button}>
-              <button onClick={signinUser}>Sign in</button>
-            </div>
-            <div className={styles.createAccount}>
-              <p>
-                New Customer? <Link to="/register">Create New Account</Link>
-              </p>
-            </div>
-          </form>
-        </div>
+                    <input
+                      type="password"
+                      id="password"
+                      value={password}
+                      onChange={(e) => setPassword(e.target.value)}
+                      placeholder="Enter Password"
+                      autoComplete="current-password"
+                    />
+                  </div>
+                </label>
+              </div>
+              <div className={styles.button}>
+                <button onClick={signinUser}>Sign in</button>
+              </div>
+              <div className={styles.createAccount}>
+                <p>
+                  New Customer? <Link to="/register">Create New Account</Link>
+                </p>
+              </div>
+            </form>
+          </div>
+        )}
       </main>
     </>
   );
