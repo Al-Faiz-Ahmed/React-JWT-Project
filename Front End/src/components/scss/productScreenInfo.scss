@@ -25,9 +25,7 @@
     }
   }
 }
-.productDetailsDiv {
-  margin-top: 30px;
-}
+
 .productDetailsDiv {
   margin-top: 30px;
   display: flex;
@@ -36,11 +34,6 @@
 .imageParentDiv {
   width: fit-content;
   text-align: center;
-  img {
-    width: 400px;
-    height: 600px;
-    object-fit: cover;
-  }
 }
 .productDetails {
   margin-left: 10px;

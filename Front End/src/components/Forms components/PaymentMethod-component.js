@@ -10,7 +10,6 @@ export default function PaymentMethodForm() {
   const  navigate = useNavigate()
   const [paymentMethod, setPaymentMethod] = useState("paypal");
   useEffect(()=>{
-    console.log("helo")
     if(!shippingAddress.address){
       navigate("/shipping")
     }

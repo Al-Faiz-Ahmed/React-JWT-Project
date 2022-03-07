@@ -123,12 +123,13 @@
   font-size: 18px;
   font-weight: bold;
   width: 100%;
-  padding: 10px 15px;
   border-radius: 6px;
   cursor: pointer;
 }
 
 .fixedPosition > div > div .checkout button a {
+  padding: 10px 15px;
+  display: block;
   text-decoration: none;
   color: #000;
 }

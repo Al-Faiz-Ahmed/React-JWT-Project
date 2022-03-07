@@ -13,11 +13,11 @@ export default function ShipppingForm() {
   const { shippingAddress } = useSelector((state) => state.cartItem);
   const { cartItems } = useSelector((state) => state.cartItem);
 
-  const [fullName, setFullName] = useState(shippingAddress.fullName);
-  const [address, setAddress] = useState(shippingAddress.address);
-  const [city, setCity] = useState(shippingAddress.city);
-  const [postalCode, setPostalCode] = useState(shippingAddress.postalCode);
-  const [country, setCountry] = useState(shippingAddress.country);
+  const [fullName, setFullName] = useState(shippingAddress.fullName ? shippingAddress.fullName : '');
+  const [address, setAddress] = useState(shippingAddress?.address ? shippingAddress?.address : '');
+  const [city, setCity] = useState(shippingAddress?.city ? shippingAddress?.city : '');
+  const [postalCode, setPostalCode] = useState(shippingAddress?.postalCode ? shippingAddress?.postalCode : '');
+  const [country, setCountry] = useState(shippingAddress?.country ? shippingAddress?.country : '');
 
   const [fullNameErr, setFullNameErr] = useState("");
   const [addressErr, setAddressErr] = useState("");
