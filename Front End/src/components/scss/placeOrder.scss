@@ -3,95 +3,97 @@
   margin-top: 10px;
   padding: 0 clamp(2%, 5vw, 80px);
 }
-
-.productDetailsDiv {
-    margin-top: 30px;
-    display: flex;
-    border: 1px solid red;
-
+.placeOrderContainer {
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+  .extraHeight {
+    display: none;
+  }
+  .orderInformation {
+    width: 100%;
+    max-width: 900px;
+    padding: 0px 20px;
 
     > div {
-        border: 1px solid red;
-    }
-  }
-
-  .imageParentDiv {
-      flex: 1;
-    width: fit-content;
-    text-align: center;
-  }
-
-  .addtoCart {
-    margin-left: 10px;
-    align-self: flex-start;
-    background-color: $primary-color;
-    color: white;
-    padding: 15px 10px;
-    margin-top: 0px;
-    border-radius: 8px;
-    max-width: 400px;
-    width: 80vw;
-    min-width: 150px;
-    .price,
-    .stock {
-      display: flex;
-      justify-content: space-between;
-      margin-top: 10px;
-    }
-    .stock {
-      p {
-        &:nth-last-child(1) {
-          color: #55efc4;
+      border: 1px solid $primary-color;
+      margin-top: 20px;
+      border-radius: 6px;
+      padding: 10px;
+      > div {
+        display: flex;
+        align-items: center;
+        margin-top: 10px;
+        h3 {
+          margin-right: 10px;
+        }
+      }
+      &:first-child {
+        margin-top: 0px;
+      }
+      &:nth-last-child(2) {
+        > div {
+          justify-content: space-between;
+        }
+        img {
+          min-width: 80px;
+          max-width: 250px;
+          width: 8vw;
+          height: 100px;
+          object-fit: contain;
+        }
+        p {
+          font-weight: 600;
         }
       }
     }
-    .addtoCartbutton {
-      margin-top: 10px;
-      button {
-        background-color: gold;
-        outline: none;
-        border: none;
-        width: 100%;
-        padding: 10px 0;
-        border-radius: 6px;
-        cursor: pointer;
+  }
+  .placeOrder {
+    min-width: 400px;
+    > div {
+      background-color: $primary-color;
+      border-radius: 8px;
+      color: white;
+      padding: 10px 15px;
+      > div {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 10px;
+      }
+      .placeOrderButton {
+        a {
+          display: block;
+          width: 100%;
+          color: black;
+          background-color: gold;
+          text-decoration: none;
+          padding: 8px;
+          text-align: center;
+          font-weight: 700;
+          border-radius: 6px;
+        }
       }
     }
   }
+}
 
-
-  
-@media (max-width: 576px) {
- 
-  
-    .addtoCart {
-      max-width: 100%;
+@media (max-width: 992px) {
+  .placeOrder {
+    padding: 0 clamp(2%, 5vw, 80px);
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    min-width: 100% !important;
+  }
+  .placeOrderContainer {
+    .extraHeight {
+      border: 0px solid transparent !important;
+      display: block;
+      height: 225px;
+    }
+    .orderInformation {
+      padding: 0px;
     }
   }
-  
-  // Medium devices (tablets, 768px and up)
-  @media (max-width: 768px) {
-    .productDetailsDiv {
-      display: flex;
-      align-items: center;
-      flex-direction: column;
-    }
-  
-    .addtoCart {
-      flex: 1;
-      margin-top: 20px !important;
-      align-self: center !important;
-      margin-left: 0px !important;
-      width: 400px;
-    }
-  }
-  
-  // Large devices (desktops, 992px and up)
-  @media (max-width: 992px) {
-    
-    .addtoCart {
-      flex: 3;
-    }
-  }
-  
-  
+}

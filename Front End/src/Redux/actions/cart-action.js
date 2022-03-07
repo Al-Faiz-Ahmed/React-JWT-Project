@@ -40,8 +40,9 @@ export const saveShippingAddress =
     localStorage.setItem("shippingAddress",JSON.stringify(data))
   };
 export const savePaymentMethod = paymentMethod => dispatch => {
+
   dispatch({
     type:CART_SAVE_PAYMENT_METHOD,
-    paylaod:paymentMethod
+    payload:paymentMethod
   })
 }

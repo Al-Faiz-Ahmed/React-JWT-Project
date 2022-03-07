@@ -3,44 +3,82 @@
   padding: 0 clamp(2%, 5vw, 80px);
 }
 
-.productDetailsDiv {
+.placeOrderContainer {
   margin-top: 30px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  border: 1px solid red;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
-.productDetailsDiv > div {
-  border: 1px solid red;
+.placeOrderContainer .extraHeight {
+  display: none;
 }
 
-.imageParentDiv {
-  -webkit-box-flex: 1;
-      -ms-flex: 1;
-          flex: 1;
-  width: -webkit-fit-content;
-  width: -moz-fit-content;
-  width: fit-content;
-  text-align: center;
+.placeOrderContainer .orderInformation {
+  width: 100%;
+  max-width: 900px;
+  padding: 0px 20px;
 }
 
-.addtoCart {
-  margin-left: 10px;
-  -ms-flex-item-align: start;
-      align-self: flex-start;
-  background-color: #20283a;
-  color: white;
-  padding: 15px 10px;
+.placeOrderContainer .orderInformation > div {
+  border: 1px solid #20283a;
+  margin-top: 20px;
+  border-radius: 6px;
+  padding: 10px;
+}
+
+.placeOrderContainer .orderInformation > div > div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-top: 10px;
+}
+
+.placeOrderContainer .orderInformation > div > div h3 {
+  margin-right: 10px;
+}
+
+.placeOrderContainer .orderInformation > div:first-child {
   margin-top: 0px;
-  border-radius: 8px;
-  max-width: 400px;
-  width: 80vw;
-  min-width: 150px;
 }
 
-.addtoCart .price,
-.addtoCart .stock {
+.placeOrderContainer .orderInformation > div:nth-last-child(2) > div {
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.placeOrderContainer .orderInformation > div:nth-last-child(2) img {
+  min-width: 80px;
+  max-width: 250px;
+  width: 8vw;
+  height: 100px;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+
+.placeOrderContainer .orderInformation > div:nth-last-child(2) p {
+  font-weight: 600;
+}
+
+.placeOrderContainer .placeOrder {
+  min-width: 400px;
+}
+
+.placeOrderContainer .placeOrder > div {
+  background-color: #20283a;
+  border-radius: 8px;
+  color: white;
+  padding: 10px 15px;
+}
+
+.placeOrderContainer .placeOrder > div > div {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -50,60 +88,33 @@
   margin-top: 10px;
 }
 
-.addtoCart .stock p:nth-last-child(1) {
-  color: #55efc4;
-}
-
-.addtoCart .addtoCartbutton {
-  margin-top: 10px;
-}
-
-.addtoCart .addtoCartbutton button {
-  background-color: gold;
-  outline: none;
-  border: none;
+.placeOrderContainer .placeOrder > div .placeOrderButton a {
+  display: block;
   width: 100%;
-  padding: 10px 0;
+  color: black;
+  background-color: gold;
+  text-decoration: none;
+  padding: 8px;
+  text-align: center;
+  font-weight: 700;
   border-radius: 6px;
-  cursor: pointer;
-}
-
-@media (max-width: 576px) {
-  .addtoCart {
-    max-width: 100%;
-  }
-}
-
-@media (max-width: 768px) {
-  .productDetailsDiv {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
-  }
-  .addtoCart {
-    -webkit-box-flex: 1;
-        -ms-flex: 1;
-            flex: 1;
-    margin-top: 20px !important;
-    -ms-flex-item-align: center !important;
-        -ms-grid-row-align: center !important;
-        align-self: center !important;
-    margin-left: 0px !important;
-    width: 400px;
-  }
 }
 
 @media (max-width: 992px) {
-  .addtoCart {
-    -webkit-box-flex: 3;
-        -ms-flex: 3;
-            flex: 3;
+  .placeOrder {
+    padding: 0 clamp(2%, 5vw, 80px);
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    min-width: 100% !important;
+  }
+  .placeOrderContainer .extraHeight {
+    border: 0px solid transparent !important;
+    display: block;
+    height: 225px;
+  }
+  .placeOrderContainer .orderInformation {
+    padding: 0px;
   }
 }
