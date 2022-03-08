@@ -1,61 +1,56 @@
 import React, { useEffect } from "react";
 import CheckoutSteps from "../simple Components/checkoutSteps";
 import styles from "../css/placeOrder.module.css";
-import { useNavigate } from "react-router-dom";
+import { /*  useNavigate, */ useParams } from "react-router-dom";
 
-import { useSelector,useDispatch } from "react-redux";
-import { createOrder } from "../../Redux/actions/order-actions";
-import { ORDER_CREATE_RESET } from "../../Redux/Constants/order-constants";
+import { useSelector, useDispatch } from "react-redux";
 import LoadingSpinner from "../simple Components/loading";
 import MessageBox from "../simple Components/MessageBox";
-export default function PlaceOrderCom() {
-  const navigate = useNavigate();
-  const dispatch = useDispatch();
-  const { cartItem,orderCreate } = useSelector((state) => state);
-  const { shippingAddress, paymentMethod, cartItems } = cartItem;
-  const {success,order,loading,error} = orderCreate
-  useEffect(() => {
-    if (!paymentMethod) {
-      navigate("/payment");
-    }
-  }, []);
-  useEffect(() => {
-    if (success) {
-      navigate(`/order/${order._id}`);
-      dispatch({type:ORDER_CREATE_RESET})
-    }
-  }, [success,order,loading]);
+import { detailsOrder } from "../../Redux/actions/order-actions";
+export default function OrderComponent() {
+  //   const navigate = useNavigate();
+  const orderId = useParams().id;
 
-  const toPrice = (num) => Number(num.toFixed(2));
-  cartItem.itemsPrice = toPrice(
-    cartItems.reduce((a, c) => a + c.qty * c.price, 0)
-  );
-    cartItem.shippingPrice = cartItem.itemsPrice > 100 ? toPrice(0) : toPrice(10)
-    cartItem.taxPrice = toPrice(0.15 * cartItem.itemsPrice)
-    cartItem.totalPrice = cartItem.itemsPrice + cartItem.shippingPrice + cartItem.taxPrice 
-    const placeOrderHandler = () =>{
-      dispatch(createOrder({...cartItem,orderItems:cartItems}))
-    }
-  return (
+  const dispatch = useDispatch();
+  const { orderDetails } = useSelector((state) => state);
+
+  const { error, loading, order } = orderDetails;
+  useEffect(() => {
+    dispatch(detailsOrder(orderId));
+  }, []);
+
+  return loading ? (
+    <LoadingSpinner />
+  ) : error ? (
+    <MessageBox>{error}</MessageBox>
+  ) : (
     <main className={styles.main}>
       <div>
         <CheckoutSteps step1 step2 step3 step4 />
       </div>
-      {
-        error ? <MessageBox>{error}</MessageBox> :
-      
+
+      <h2 style={{ marginTop: "20px" }}>Order {orderId}</h2>
       <div className={styles.placeOrderContainer}>
         <div className={styles.orderInformation}>
           <div>
             <h2>Shipping</h2>
             <div>
               <h3>Name: </h3>
-              {shippingAddress.fullName}
+              {order.shippingAddress.fullName}
             </div>
             <div>
               <h3>Address: </h3>
-              {shippingAddress.address},{shippingAddress.city},
-              {shippingAddress.postalCode},{shippingAddress.country}
+              {order.shippingAddress.address},{order.shippingAddress.city},
+              {order.shippingAddress.postalCode},{order.shippingAddress.country}
+            </div>
+            <div>
+              {order.isDelivered ? (
+                <MessageBox success>
+                  Delivered at {order.deliveredAt}
+                </MessageBox>
+              ) : (
+                <MessageBox>Not Delivered.</MessageBox>
+              )}
             </div>
           </div>
           <div>
@@ -63,10 +58,17 @@ export default function PlaceOrderCom() {
             <div>
               <h3>Method: </h3>Paypal
             </div>
+            <div>
+              {order.isPaid ? (
+                <MessageBox success>Paid at {order.paidAt}</MessageBox>
+              ) : (
+                <MessageBox>Not Paid.</MessageBox>
+              )}
+            </div>
           </div>
           <div>
             <h2>Order items</h2>
-            {cartItems.map((data) => (
+            {order.orderItems.map((data) => (
               <div key={data.name}>
                 <img
                   src={require(`../../Assets/${data.image}`)}
@@ -87,26 +89,29 @@ export default function PlaceOrderCom() {
             <h2>Order Summary</h2>
             <div>
               <p>Items</p>
-              <p>${cartItem.itemsPrice}.00</p>
+              <p>${order.itemsPrice}</p>
             </div>
             <div>
               <p>Shipping</p>
-              <p>${cartItem.shippingPrice}.00</p>
+              <p>${order.shippingPrice}</p>
             </div>
             <div>
               <p>Tax</p>
-              <p>${cartItem.taxPrice}.00</p>
+              <p>${order.taxPrice}</p>
             </div>
             <div>
               <h3>Total Order</h3>
-              <h3>${cartItem.totalPrice}.00</h3>
+              <h3>${order.totalPrice}</h3>
             </div>
             <div className={styles.placeOrderButton}>
-              <button onClick={loading ? null : placeOrderHandler}>{loading ? <LoadingSpinner /> : 'Place Order'}</button>
+              <button className={styles.paypal} onClick={null}>
+                <i className="fa fa-paypal" aria-hidden="true"></i>
+                <span>PayPal</span>
+              </button>
             </div>
           </div>
         </div>
-      </div>}
+      </div>
     </main>
   );
 }

@@ -24,7 +24,7 @@ const orderScheme = new mongoose.Schema({
     user:{type:mongoose.Schema.ObjectId,ref:"User",required:true},
     isPaid:{type:Boolean,default:false},
     paidAt:{type:Date},
-    isDelivered:{type:Boolean,default:true},
+    isDelivered:{type:Boolean,default:false},
     deliveredAt:{type:Date},
 },{
     timestamps:true

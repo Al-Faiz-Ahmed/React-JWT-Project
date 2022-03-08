@@ -1,6 +1,7 @@
 .main {
   margin-top: 10px;
   padding: 0 clamp(2%, 5vw, 80px);
+  word-break: break-all;
 }
 
 .placeOrderContainer {
@@ -101,6 +102,18 @@
   border: none;
   outline: none;
   cursor: pointer !important;
+}
+
+.placeOrderContainer .placeOrder > div .placeOrderButton .paypal {
+  background: -webkit-gradient(linear, right top, left top, from(#0194d5), to(#014A9B));
+  background: linear-gradient(to left, #0194d5, #014A9B);
+  color: white;
+  font-size: 20px;
+}
+
+.placeOrderContainer .placeOrder > div .placeOrderButton .paypal span {
+  margin-left: 10px;
+  font-style: italic;
 }
 
 @media (max-width: 992px) {
