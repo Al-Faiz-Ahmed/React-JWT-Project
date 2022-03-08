@@ -4,7 +4,7 @@ import {
   PRODUCT_LIST_SUCCESS,
   PRODUCT_REQUEST,
   PRODUCT_SUCCESS,
-  PRODUCT_ERROR
+  PRODUCT_ERROR,
 } from "../Constants/products-constants";
 import axios from "axios";
 
@@ -28,7 +28,7 @@ export const listProducts = () => async (dispatch) => {
 export const product = (productId) => async (dispatch) => {
   dispatch({
     type: PRODUCT_REQUEST,
-    payload:productId
+    payload: productId,
   });
   try {
     const { data } = await axios.get(`/api/products/${productId}`);
@@ -39,7 +39,10 @@ export const product = (productId) => async (dispatch) => {
   } catch (error) {
     dispatch({
       type: PRODUCT_ERROR,
-      payload: error.response && error.response.data.message ? error.response.data.message : error.message,
+      payload:
+        error.response && error.response.data.message
+          ? error.response.data.message
+          : error.message,
     });
   }
 };

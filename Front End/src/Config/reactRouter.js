@@ -2,6 +2,7 @@ import React from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import ScrollToTop from "../components/scrolltoTop/scrolltoTop";
 import HomeScreen from "../Screens/jsx/homeScreen";
+import OrderScreen from "../Screens/jsx/orderScreen";
 import PaymentScreen from "../Screens/jsx/paymentScreen";
 import PlaceOrderScreen from "../Screens/jsx/placeOrderScreen";
 import ProductCartScreen from "../Screens/jsx/productCartScreen";
@@ -20,6 +21,7 @@ const ReactRouter = () => {
             <Route path="/cart" element={<ProductCartScreen />} />
             <Route path="/cart/:id" element={<ProductCartScreen />} />
             <Route path="/products/:id" element={<PoductDetails />} />
+            <Route path="/order/:id" element={<OrderScreen />} />
             <Route path="/placeorder" element={<PlaceOrderScreen />} />
             <Route path="/payment" element={<PaymentScreen />} />
             <Route path="/shipping" element={<ShippingScreen />} />

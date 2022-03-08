@@ -1,18 +1,29 @@
 import React, { useEffect } from "react";
 import CheckoutSteps from "../simple Components/checkoutSteps";
 import styles from "../css/placeOrder.module.css";
-// import imgggg from "../../Assets/product 1.png";
-import { Link, useNavigate } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
+
+import { useSelector,useDispatch } from "react-redux";
+import { createOrder } from "../../Redux/actions/order-actions";
+import { ORDER_CREATE_RESET } from "../../Redux/Constants/order-constants";
+import LoadingSpinner from "../simple Components/loading";
 export default function PlaceOrderCom() {
   const navigate = useNavigate();
-  const { cartItem } = useSelector((state) => state);
+  const dispatch = useDispatch();
+  const { cartItem,orderCreate } = useSelector((state) => state);
   const { shippingAddress, paymentMethod, cartItems } = cartItem;
+  const {success,order,loading} = orderCreate
   useEffect(() => {
     if (!paymentMethod) {
       navigate("/payment");
     }
   }, []);
+  useEffect(() => {
+    if (success) {
+      navigate(`/order/${order._id}`);
+      dispatch({type:ORDER_CREATE_RESET})
+    }
+  }, [success,order,loading]);
 
   const toPrice = (num) => Number(num.toFixed(2));
   cartItem.itemsPrice = toPrice(
@@ -21,11 +32,17 @@ export default function PlaceOrderCom() {
     cartItem.shippingPrice = cartItem.itemsPrice > 100 ? toPrice(0) : toPrice(10)
     cartItem.taxPrice = toPrice(0.15 * cartItem.itemsPrice)
     cartItem.totalPrice = cartItem.itemsPrice + cartItem.shippingPrice + cartItem.taxPrice 
+    const placeOrderHandler = () =>{
+      dispatch(createOrder({...cartItem,orderItems:cartItems}))
+    }
   return (
     <main className={styles.main}>
       <div>
         <CheckoutSteps step1 step2 step3 step4 />
       </div>
+      {
+        loading && <LoadingSpinner />
+      }
       <div className={styles.placeOrderContainer}>
         <div className={styles.orderInformation}>
           <div>
@@ -84,7 +101,7 @@ export default function PlaceOrderCom() {
               <h3>${cartItem.totalPrice}.00</h3>
             </div>
             <div className={styles.placeOrderButton}>
-              <Link to="?redirect">Place Order</Link>
+              <button onClick={placeOrderHandler}>Place Order</button>
             </div>
           </div>
         </div>

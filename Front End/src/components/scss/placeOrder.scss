@@ -61,7 +61,7 @@
         margin-top: 10px;
       }
       .placeOrderButton {
-        a {
+        button {
           display: block;
           width: 100%;
           color: black;
@@ -71,6 +71,9 @@
           text-align: center;
           font-weight: 700;
           border-radius: 6px;
+          border: none;
+          outline: none;
+          cursor: pointer !important;
         }
       }
     }

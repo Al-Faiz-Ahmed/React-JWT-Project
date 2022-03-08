@@ -1,4 +1,4 @@
-import { CART_ADD_ITEM, CART_SAVE_PAYMENT_METHOD, CART_SAVE_SHIPPING_ADDRESS, DELETE_CART_ITEM } from "../Constants/cart-constants";
+import { CART_ADD_ITEM, CART_EMPTY, CART_SAVE_PAYMENT_METHOD, CART_SAVE_SHIPPING_ADDRESS, DELETE_CART_ITEM } from "../Constants/cart-constants";
 export default function AddCartItemReducer(state = { cartItems: [] }, action) {
   switch (action.type) {
     case CART_ADD_ITEM:
@@ -38,6 +38,11 @@ export default function AddCartItemReducer(state = { cartItems: [] }, action) {
           ...state,
           cartItems: [...state.cartItems, item],
         };
+      }
+      case CART_EMPTY : 
+      return{
+        ...state,
+        cartItems:[]
       }
       case CART_SAVE_SHIPPING_ADDRESS :
         return{
