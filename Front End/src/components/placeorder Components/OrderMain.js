@@ -6,18 +6,27 @@ import { /*  useNavigate, */ useParams } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import LoadingSpinner from "../simple Components/loading";
 import MessageBox from "../simple Components/MessageBox";
-import { detailsOrder } from "../../Redux/actions/order-actions";
+import { detailsOrder, payOrder } from "../../Redux/actions/order-actions";
+import { ORDER_PAY_RESET } from "../../Redux/Constants/order-constants";
 export default function OrderComponent() {
   //   const navigate = useNavigate();
   const orderId = useParams().id;
 
   const dispatch = useDispatch();
-  const { orderDetails } = useSelector((state) => state);
+  const { orderDetails, orderPay } = useSelector((state) => state);
 
   const { error, loading, order } = orderDetails;
+  const { success: successPay } = orderPay;
   useEffect(() => {
-    dispatch(detailsOrder(orderId));
-  }, []);
+    if (!order || successPay || (order && orderId !== order._id)) {
+      dispatch({ type: ORDER_PAY_RESET });
+      dispatch(detailsOrder(orderId));
+    }
+  }, [successPay, order]);
+
+  const paymentSuccessfullHandler = () => {
+    dispatch(payOrder(order));
+  };
 
   return loading ? (
     <LoadingSpinner />
@@ -104,10 +113,15 @@ export default function OrderComponent() {
               <h3>${order.totalPrice}</h3>
             </div>
             <div className={styles.placeOrderButton}>
-              <button className={styles.paypal} onClick={null}>
-                <i className="fa fa-paypal" aria-hidden="true"></i>
-                <span>PayPal</span>
-              </button>
+              {!order.isPaid && (
+                <button
+                  className={styles.paypal}
+                  onClick={paymentSuccessfullHandler}
+                >
+                  <i className="fa fa-paypal" aria-hidden="true"></i>
+                  <span>PayPal</span>
+                </button>
+              )}
             </div>
           </div>
         </div>

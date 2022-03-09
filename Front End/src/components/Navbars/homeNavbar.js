@@ -44,6 +44,7 @@ export default function HomeNavbar() {
                       <i className="fa fa-caret-down" aria-hidden="true"></i>
                       <ul className={styles.dropdownContent} >
                         <li><Link to="#" onClick={signOutUser}>Sign out</Link></li>
+                        <li><Link to="/orderhistory" onClick={null}>Orders</Link></li>
                       </ul>
                     
                   </li>

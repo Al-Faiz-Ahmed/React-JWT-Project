@@ -7,6 +7,9 @@ import {
   ORDER_DETAIL_REQUEST,
   ORDER_DETAIL_FAILED,
   ORDER_DETAIL_SUCCESS,
+  ORDER_PAY_REQUEST,
+  ORDER_PAY_FAILED,
+  ORDER_PAY_SUCCESS,
 } from "../Constants/order-constants";
 
 export const createOrder = (order) => async (dispatch, getState) => {
@@ -68,3 +71,32 @@ export const detailsOrder = (orderId) => async (dispatch, getState) => {
     });
   }
 };
+export const payOrder = (order) => async (dispatch,getState) => {
+  dispatch({
+    type:ORDER_PAY_REQUEST,
+  })
+  const {
+    signinUser: { userInfo },
+  } = getState();
+  try{
+    console.log(order._id,'hello ID')
+    const {data} = await Axios.put(`/api/orders/${order._id}/pay`,'hell',{
+      headers:{
+        Authorization: `Bearer ${userInfo.token}`
+      }
+    })
+    dispatch({
+      type:ORDER_PAY_SUCCESS,
+      payload:data
+    })
+  }catch(error){
+    dispatch({
+      type: ORDER_PAY_FAILED,
+      payload:
+        error.response && error.response.data.message
+          ? error.response.data.message
+          : error.message,
+    });
+  }
+
+}

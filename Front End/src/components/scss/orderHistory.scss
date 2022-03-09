@@ -1,0 +1,5 @@
+@import "allVariable";
+
+.main {
+    padding: 0 clamp(2%, 5vw, 80px);
+}

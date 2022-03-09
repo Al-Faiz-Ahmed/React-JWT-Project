@@ -6,7 +6,6 @@ const orderRouter = express.Router();
 
 const isAuth = (req, res, next) => {
   const authorization = req.headers.authorization;
-  
   if (authorization) {
     const token = authorization.slice(7, authorization.length);
     jwt.verify(token, "secret_key", (err, decode) => {
@@ -50,6 +49,24 @@ orderRouter.get("/:id",isAuth,asyncHandler(async (req,res)=>{
   const order  = await Order.findById(req.params.id)
   if(order){
     res.send(order)
+  }else{
+    res.status(404).send({message:"Order not Found"})
+  }
+}))
+
+orderRouter.put("/:id/pay",isAuth,asyncHandler(async(req,res)=>{
+  const order  = await Order.findById(req.params.id)
+  if(order){
+    order.isPaid = true
+    order.paidAt = Date.now()
+    order.paymentResult = {
+      id:"Configure when PayPal COnnected",
+      status:"Configure when PayPal COnnected",
+      update_time:"Configure when PayPal COnnected",
+      email_address:"Configure when PayPal COnnected"
+    }
+    const updatedOrder = await order.save() 
+    res.send({message:"Order Paid",order:updatedOrder})
   }else{
     res.status(404).send({message:"Order not Found"})
   }
