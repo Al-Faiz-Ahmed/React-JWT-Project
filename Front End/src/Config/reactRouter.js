@@ -11,6 +11,7 @@ import PoductDetails from "../Screens/jsx/productDetailScreen";
 import RegisterUserScreen from "../Screens/jsx/register-user";
 import ShippingScreen from "../Screens/jsx/shippingScreen";
 import SigninScreen from "../Screens/jsx/signinScreen";
+import UserProfileScreen from "../Screens/jsx/userProfileSreen";
 
 
 const ReactRouter = () => {
@@ -27,6 +28,7 @@ const ReactRouter = () => {
             <Route path="/placeorder" element={<PlaceOrderScreen />} />
             <Route path="/payment" element={<PaymentScreen />} />
             <Route path="/shipping" element={<ShippingScreen />} />
+            <Route path="/profile/:id" element={<UserProfileScreen />} />
             <Route path="/signin" element={<SigninScreen />} />
             <Route path="/register" element={<RegisterUserScreen />} />
             <Route path="/" element={<HomeScreen />} />

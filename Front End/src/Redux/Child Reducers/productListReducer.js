@@ -5,6 +5,9 @@ import {
   PRODUCT_REQUEST,
   PRODUCT_SUCCESS,
   PRODUCT_ERROR,
+  PRODUCT_REVIEW_ERROR,
+  PRODUCT_REVIEW_REQUEST,
+  PRODUCT_REVIEW_SUCCESS,
 } from "../Constants/products-constants";
 
 let productList = {
@@ -18,7 +21,7 @@ let productData = {
   error: "",
 };
 
-export default function ProductListReducer(state = productList, action) {
+export function productListReducer(state = productList, action) {
   switch (action.type) {
     case PRODUCT_LIST_REQUEST:
       return {
@@ -54,6 +57,19 @@ export function ProductReducer(state = productData, action) {
         loading: true,
         error: action.payload,
       };
+    default:
+      return state;
+  }
+}
+
+export function productReviewReducer(state = { reviewdOrder: [] }, action) {
+  switch (action.type) {
+    case PRODUCT_REVIEW_REQUEST:
+      return { loading: true };
+    case PRODUCT_REVIEW_SUCCESS:
+      return { loading: false, reviewdOrder: action.payload };
+    case PRODUCT_REVIEW_ERROR:
+      return { loading: false, error: action.payload };
     default:
       return state;
   }

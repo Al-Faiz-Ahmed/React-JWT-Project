@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import CheckoutSteps from "../simple Components/checkoutSteps";
 import styles from "../css/placeOrder.module.css";
-import { /*  useNavigate, */ useParams } from "react-router-dom";
+import {  useNavigate, useParams } from "react-router-dom";
 
 import { useSelector, useDispatch } from "react-redux";
 import LoadingSpinner from "../simple Components/loading";
@@ -9,9 +9,8 @@ import MessageBox from "../simple Components/MessageBox";
 import { detailsOrder, payOrder } from "../../Redux/actions/order-actions";
 import { ORDER_PAY_RESET } from "../../Redux/Constants/order-constants";
 export default function OrderComponent() {
-  //   const navigate = useNavigate();
+    const navigate = useNavigate();
   const orderId = useParams().id;
-
   const dispatch = useDispatch();
   const { orderDetails, orderPay } = useSelector((state) => state);
 
@@ -21,11 +20,16 @@ export default function OrderComponent() {
     if (!order || successPay || (order && orderId !== order._id)) {
       dispatch({ type: ORDER_PAY_RESET });
       dispatch(detailsOrder(orderId));
+
     }
+    
   }, [successPay, order]);
 
   const paymentSuccessfullHandler = () => {
     dispatch(payOrder(order));
+  };
+  const continueToReview = () => {
+    navigate(`/profile/${orderId}`);
   };
 
   return loading ? (
@@ -120,6 +124,14 @@ export default function OrderComponent() {
                 >
                   <i className="fa fa-paypal" aria-hidden="true"></i>
                   <span>PayPal</span>
+                </button>
+              )}
+              {order.isPaid && (
+                <button
+                  className={styles.paypal}
+                  onClick={continueToReview}
+                >
+                  <span>Review Product</span>
                 </button>
               )}
             </div>

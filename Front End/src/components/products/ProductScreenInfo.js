@@ -17,8 +17,6 @@ export default function ProductScreenInfo(props) {
     dispatch(product(props.giveId));
   }, [dispatch, props.giveId]);
   
-
-
   function addToCartHandler(){
    navigate(`/cart/${props.giveId}?qty=${qty}`)
   }

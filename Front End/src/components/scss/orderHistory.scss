@@ -1,5 +1,158 @@
 @import "allVariable";
 
 .main {
-    padding: 0 clamp(2%, 5vw, 80px);
+  padding: 0 clamp(2%, 5vw, 80px);
+  > h2 {
+    margin-top: 30px;
+  }
+  .tableContainer {
+    margin-top: 30px;
+    // border-bottom: 0px solid transparent;
+    .tableRow {
+      padding: 5px;
+      > div {
+        display: flex;
+      }
+      .head {
+        flex: 1;
+        display: flex;
+        div {
+          display: flex;
+          flex: 1;
+          &:nth-child(1) {
+            h3 {
+              padding-left: 5px;
+              flex: 1;
+              &:nth-child(1) {
+                flex: 1.5;
+              }
+            }
+          }
+          &:nth-child(2) {
+            h3 {
+              padding-left: 5px;
+              flex: 1;
+            }
+          }
+          &:nth-child(3) {
+            flex: 0.3;
+            h3 {
+              padding-left: 5px;
+              flex: 1;
+            }
+          }
+        }
+      }
+      .body {
+        padding: 2px;
+        flex: 1;
+        display: flex;
+        word-break: break-all;
+        border: 2px solid $primary-color;
+        border-radius: 8px;
+        margin: 10px 0px;
+        font-weight: 600;
+        .orderIDandDate {
+          display: flex;
+          flex: 1;
+          p {
+            flex: 1;
+            padding: 15px 5px;
+            &:nth-child(1) {
+              flex: 1.5;
+            }
+            &:nth-child(2) {
+              flex: 0.5;
+              border-left: 2px solid $primary-color;
+            }
+          }
+        }
+        .priceandDelivery {
+          display: flex;
+          flex: 1;
+          p {
+            border-left: 2px solid $primary-color;
+            padding: 15px 5px;
+            flex: 1;
+          }
+        }
+        .actions {
+          display: flex;
+          flex: 0.3;
+          padding: 15px 5px;
+          justify-content: center;
+          border-left: 2px solid $primary-color;
+          button {
+            border: 2px solid $primary-color;
+            background-color: gold;
+            color: $primary-color;
+            border-radius: 6px;
+            padding: 5px 20px;
+            font-weight: 600;
+            cursor: pointer;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .head {
+    display: none !important;
+  }
+  .body {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    word-break: break-all;
+    border: 2px solid $primary-color;
+    border-radius: 8px;
+    margin: 10px 0px;
+    padding: 10px !important;
+    .orderIDandDate {
+      display: flex;
+      flex: 1;
+      border-bottom: 2px solid $primary-color;
+      p {
+        flex: 0;
+        padding: 0px !important;
+        &:nth-child(1) {
+          flex: 1 !important;
+        }
+        &:nth-child(2) {
+            text-align: right;
+          border-left: 0px solid $primary-color !important;
+        }
+      }
+    }
+    .priceandDelivery {
+      display: flex;
+      flex: 1;
+      flex-direction: column;
+      p {
+        border-left: 0px solid $primary-color !important;
+        padding: 0px !important;
+        flex: 1;
+      }
+    }
+    .actions {
+      display: flex;
+      flex: 0.3;
+      padding: 0px !important;
+      justify-content: center;
+      margin-top: 20px;
+      border-left: 0px solid $primary-color !important;
+      button {
+        border: 2px solid $primary-color;
+        background-color: gold;
+        color: $primary-color;
+        border-radius: 6px;
+        padding: 5px 20px;
+        font-weight: 600;
+        cursor: pointer;
+        width: 100%;
+      }
+    }
+  }
 }

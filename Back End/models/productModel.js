@@ -9,7 +9,8 @@ const productSchema  = mongoose.Schema({
     price:{type:Number,required:true},
     rating:{type:Number,required:true},
     countInStock:{type:Number,required:true},
-    numReviews:{type:Number,required:true}
+    numReviews:{type:Number,required:true},
+    review:[{type:String}]
 },{ timestamps:true})
 
 const Products = mongoose.model('Products',productSchema)

@@ -9,7 +9,7 @@ export default function OrderHistoryScreen() {
         <HomeScreenNavbar />
       </header>
       <main>
-    <OrderHistoryMain />
+        <OrderHistoryMain />
       </main>
       <footer></footer>
     </>

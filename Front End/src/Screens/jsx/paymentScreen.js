@@ -1,15 +1,17 @@
-import React from 'react'
-import PaymentMethodForm from '../../components/Forms components/PaymentMethod-component'
-import HomeNavbar from '../../components/Navbars/homeNavbar'
+import React from "react";
+import PaymentMethodForm from "../../components/Forms components/PaymentMethod-component";
+import HomeNavbar from "../../components/Navbars/homeNavbar";
 
 export default function PaymentScreen() {
   return (
-      <>
+    <>
       <header>
-          <HomeNavbar />
+        <HomeNavbar />
       </header>
-      <main><PaymentMethodForm /></main>
+      <main>
+        <PaymentMethodForm />
+      </main>
       <footer></footer>
-      </>
-  )
+    </>
+  );
 }

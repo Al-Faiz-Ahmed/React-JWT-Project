@@ -5,6 +5,9 @@ import {
   PRODUCT_REQUEST,
   PRODUCT_SUCCESS,
   PRODUCT_ERROR,
+  PRODUCT_REVIEW_REQUEST,
+  PRODUCT_REVIEW_ERROR,
+  PRODUCT_REVIEW_SUCCESS,
 } from "../Constants/products-constants";
 import axios from "axios";
 
@@ -46,3 +49,23 @@ export const product = (productId) => async (dispatch) => {
     });
   }
 };
+
+export const productReview = (productID,review) => async (dispatch) => {
+  dispatch({
+    type:PRODUCT_REVIEW_REQUEST
+  })
+  try{
+    const {data} = await axios.put(`/api/products/${productID}/review`,review)
+    dispatch({
+      type:PRODUCT_REVIEW_SUCCESS,
+      payload:data,
+    })
+  }catch(error){
+    dispatch({
+      type:PRODUCT_REVIEW_ERROR,
+      payload:error.response && error.response.data.message
+      ? error.response.data.message
+      : error.message,
+    })
+  }
+}

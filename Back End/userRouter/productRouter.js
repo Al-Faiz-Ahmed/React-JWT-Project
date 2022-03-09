@@ -25,5 +25,16 @@ productsRouter.get('/:id',asyncHandler( async(req,res)=>{
     }
 
 }))
+productsRouter.put('/:id/review',asyncHandler(async(req,res)=>{
+    const UpdateReview = await Products.findById(req.params.id)
+    console.log(req.body,'miljayega')
+    // if(UpdateReview){
+    //     UpdateReview.review = [
+    //         ...UpdateReview.review,
+
+
+    //     ]
+    // }
+}))
 
 export default productsRouter
