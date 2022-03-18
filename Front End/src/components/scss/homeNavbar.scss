@@ -37,6 +37,12 @@
         margin-left: 5px;
         border-radius: 50%;
       }
+      a{
+
+        &:hover {
+          color: gold;
+        }
+      }
       &:nth-child(1) {
         margin-left: 0px;
       }
@@ -54,14 +60,20 @@
       position: absolute;
       top: 100%;
       right: 0;
+      text-align: right;
+      background-color: $primary-color;
+      border-radius: 6px;
       a {
         display: block;
-        border-radius: 6px;
         margin-top: 10px;
         padding: 10px 15px;
+        width: 100%;
         background-color: $primary-color;
         text-decoration: none;
         color: $light-color;
+        &:hover {
+          color: gold;
+        }
       }
     }
   }

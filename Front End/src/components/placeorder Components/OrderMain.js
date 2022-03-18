@@ -29,7 +29,7 @@ export default function OrderComponent() {
     dispatch(payOrder(order));
   };
   const continueToReview = () => {
-    navigate(`/profile/${orderId}`);
+    navigate(`/order-review/${orderId}`);
   };
 
   return loading ? (

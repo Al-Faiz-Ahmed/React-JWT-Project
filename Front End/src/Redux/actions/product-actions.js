@@ -50,15 +50,17 @@ export const product = (productId) => async (dispatch) => {
   }
 };
 
-export const productReview = (productID,review) => async (dispatch) => {
+export const productReview = (productID,review,orderID) => async (dispatch,getState) => {
+ 
+  const orderDetail = getState().orderDetails.order.orderItems.find((x)=> x.product_Id === productID)
   dispatch({
     type:PRODUCT_REVIEW_REQUEST
   })
   try{
-    const {data} = await axios.put(`/api/products/${productID}/review`,review)
+    const {data} = await axios.put(`/api/products/${productID}/review`,{update:review,orderId:orderID})
+    orderDetail.review = data
     dispatch({
       type:PRODUCT_REVIEW_SUCCESS,
-      payload:data,
     })
   }catch(error){
     dispatch({

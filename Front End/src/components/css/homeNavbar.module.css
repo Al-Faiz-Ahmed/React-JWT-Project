@@ -49,6 +49,10 @@
   border-radius: 50%;
 }
 
+.nav ul li a:hover {
+  color: gold;
+}
+
 .nav ul li:nth-child(1) {
   margin-left: 0px;
 }
@@ -68,14 +72,21 @@
   position: absolute;
   top: 100%;
   right: 0;
+  text-align: right;
+  background-color: #20283a;
+  border-radius: 6px;
 }
 
 .nav ul .nameLink:hover .dropdownContent a {
   display: block;
-  border-radius: 6px;
   margin-top: 10px;
   padding: 10px 15px;
+  width: 100%;
   background-color: #20283a;
   text-decoration: none;
   color: #fbfbfb;
+}
+
+.nav ul .nameLink:hover .dropdownContent a:hover {
+  color: gold;
 }

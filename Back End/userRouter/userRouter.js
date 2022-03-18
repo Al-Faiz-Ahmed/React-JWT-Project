@@ -18,6 +18,25 @@ function generateToken(user) {
     { expiresIn: "30d" }
   );
 }
+const isAuth = (req, res, next) => {
+  const authorization = req.headers.authorization;
+  
+
+  if (authorization) {
+    const token = authorization.slice(7, authorization.length);
+    jwt.verify(token, "secret_key", (err, decode) => {
+        if(err){
+            res.status(401).send({message:"Invalid Token"})
+        }else{
+            req.user = decode;
+            next()
+        }
+    });
+}else{
+      res.status(401).send({message:"Token not Available"})
+
+  }
+};
 userRouter.get(
   "/seed",
   asyncHandler(async (req, res) => {
@@ -68,10 +87,38 @@ userRouter.post('/register',asyncHandler(async(req,res)=>{
 }))
 
 
-userRouter.get("/:id",asyncHandler(async(req,res)=>{
+userRouter.put("/:id",isAuth,asyncHandler(async(req,res)=>{
   const user = await User.findById(req.params.id)
+  const {username, email, password, newPassword } = req.body
   if(user){
-    res.send(user)
+    if (bcrypt.compareSync(req.body.password, user.password)) {
+      if(username && email && password && newPassword ){
+        user.name = username
+        user.email = email
+        user.password = bcrypt.hashSync(newPassword,8)
+        await user.save()
+        res.send({
+            _id: user._id,
+            name: user.name,
+            isAdmin: user.isAdmin,
+            email: user.email,
+            token: generateToken(user),
+          });
+      }else if(username && email && password){
+        user.name = username
+        user.email = email
+        await user.save()
+        res.send({
+            _id: user._id,
+            name: user.name,
+            isAdmin: user.isAdmin,
+            email: user.email,
+            token: generateToken(user),
+          });
+      }
+    } else {
+    res.status(401).send({ message: "Password not Matched." });
+    }
   }else{
     res.status(401).send({ message: "User not Found." });
   }

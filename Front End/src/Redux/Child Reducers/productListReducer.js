@@ -62,12 +62,13 @@ export function ProductReducer(state = productData, action) {
   }
 }
 
-export function productReviewReducer(state = { reviewdOrder: [] }, action) {
+export function productReviewReducer(state = {}, action) {
   switch (action.type) {
     case PRODUCT_REVIEW_REQUEST:
       return { loading: true };
     case PRODUCT_REVIEW_SUCCESS:
-      return { loading: false, reviewdOrder: action.payload };
+      
+      return { loading: false,success:true };
     case PRODUCT_REVIEW_ERROR:
       return { loading: false, error: action.payload };
     default:
