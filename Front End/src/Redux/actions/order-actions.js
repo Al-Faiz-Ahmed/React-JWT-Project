@@ -80,9 +80,11 @@ export const payOrder = (order) => async (dispatch, getState) => {
   });
   const {
     signinUser: { userInfo },
+    orderDetails:{order : {orderItems}}
   } = getState();
+  console.log(orderItems)
   try {
-    const { data } = await Axios.put(`/api/orders/${order._id}/pay`, "hell", {
+    const { data } = await Axios.put(`/api/orders/${order._id}/pay`, {orderItems}, {
       headers: {
         Authorization: `Bearer ${userInfo.token}`,
       },

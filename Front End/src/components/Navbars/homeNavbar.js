@@ -65,7 +65,7 @@ export default function HomeNavbar() {
                   </Link>
                 </li>
               )}
-              {userInfo.isAdmin && (
+              {userInfo?.isAdmin && (
                 <li>
                   <Link to="#" className={styles.defaultLink}>
                     Admin

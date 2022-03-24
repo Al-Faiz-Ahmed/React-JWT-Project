@@ -2,6 +2,7 @@ import express from "express";
 import asyncHandler from "express-async-handler";
 import jwt from "jsonwebtoken";
 import Order from "../models/orderModel.js";
+import Products from "../models/productModel.js";
 const orderRouter = express.Router();
 
 const isAuth = (req, res, next) => {
@@ -62,7 +63,17 @@ orderRouter.get("/:id",isAuth,asyncHandler(async (req,res)=>{
 }))
 
 orderRouter.put("/:id/pay",isAuth,asyncHandler(async(req,res)=>{
+ 
   const order  = await Order.findById(req.params.id)
+  req.body.orderItems.map(async (orderItem)=>{
+    const productUpdate = await Products.findById(orderItem.product_Id)
+    if(productUpdate){
+      if(productUpdate.countInStock > 0){
+        productUpdate.countInStock = productUpdate.countInStock - orderItem.qty
+        await productUpdate.save()
+      }
+    }
+  })
   if(order){
     order.isPaid = true
     order.paidAt = Date.now()
@@ -73,7 +84,9 @@ orderRouter.put("/:id/pay",isAuth,asyncHandler(async(req,res)=>{
       email_address:"Configure when PayPal COnnected"
     }
     const updatedOrder = await order.save() 
+  
     res.send({message:"Order Paid",order:updatedOrder})
+
   }else{
     res.status(404).send({message:"Order not Found"})
   }

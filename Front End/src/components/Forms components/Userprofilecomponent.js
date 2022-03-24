@@ -1,17 +1,18 @@
-import React, { useState,  } from "react";
+import React, { useEffect, useState,  } from "react";
 import { userProfileUpdate } from "../../Redux/actions/user-auth-actions";
 import styles from "../css/RegisterUser.module.css";
 import AuthenticationError from "../simple Components/authenticationError";
 import { useDispatch, useSelector } from "react-redux";
 import MessageBox from "../simple Components/MessageBox";
 import LoadingSpinner from "../simple Components/loading";
-
+import {useNavigate} from 'react-router-dom'
 export default function Userprofilecomponent() {
+  const navigate = useNavigate()
   const dispatch = useDispatch();
   const { userInfo } = useSelector((state) => state.signinUser);
   const { error,loading } = useSelector((state) => state.profileUpdate);
-  const [name, setName] = useState(userInfo.name);
-  const [email, setEmail] = useState(userInfo.email);
+  const [name, setName] = useState(userInfo?.name);
+  const [email, setEmail] = useState(userInfo?.email);
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
 
@@ -20,7 +21,12 @@ export default function Userprofilecomponent() {
   const [passwordError, setPasswordError] = useState("");
   // const [confirmPasswordError, setConfirmPasswordError] = useState("");
 
-  
+  useEffect(()=>{
+    if(!userInfo){
+      navigate("/signin")
+    }
+
+  },[userInfo])
 
   const registerUser = (e) => {
     e.preventDefault();
@@ -46,15 +52,13 @@ export default function Userprofilecomponent() {
    
     if (email && password && name && confirmPassword) {
       if (/^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(email)) {
-          
-        console.log("1")
-          dispatch(userProfileUpdate(name, email, password,confirmPassword));
+                 dispatch(userProfileUpdate(name, email, password,confirmPassword));
         
       }
     }
     else if (email && password && name) {
       if (/^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(email)) {
-          console.log("2")
+  
           dispatch(userProfileUpdate(name, email, password));
         
       }
