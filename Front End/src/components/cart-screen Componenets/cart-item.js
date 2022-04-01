@@ -33,7 +33,7 @@ export default function CartItem() {
             <div className={styles.cartTable}>
               <div className={styles.table}>
                 {cartItems &&
-                  cartItems.map((item) => (
+                  cartItems.map((item) => ( 
                     <div className={styles.cart} key={item.product_Id}>
                       <div className={styles.itemImage}>
                         <img

@@ -13,7 +13,7 @@ export default function ShipppingForm() {
   const { shippingAddress } = useSelector((state) => state.cartItem);
   const { cartItems } = useSelector((state) => state.cartItem);
 
-  const [fullName, setFullName] = useState(shippingAddress.fullName ? shippingAddress.fullName : '');
+  const [fullName, setFullName] = useState(shippingAddress?.fullName ? shippingAddress?.fullName : '');
   const [address, setAddress] = useState(shippingAddress?.address ? shippingAddress?.address : '');
   const [city, setCity] = useState(shippingAddress?.city ? shippingAddress?.city : '');
   const [postalCode, setPostalCode] = useState(shippingAddress?.postalCode ? shippingAddress?.postalCode : '');
@@ -31,6 +31,7 @@ export default function ShipppingForm() {
     } else if (cartItems.length === 0) {
       navigate("/");
     }
+    console.log(cartItems)
   }, [userInfo]);
 
   const submitHandler = (event) => {

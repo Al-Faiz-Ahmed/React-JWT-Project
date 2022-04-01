@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { product } from "../../Redux/actions/product-actions";
-// import productData from "../productsData/productsData";
 import styles from "../css/productScreenInfo.module.css";
 import ProductRating from "./productRating";
 import LoadingSpinner from "../simple Components/loading";

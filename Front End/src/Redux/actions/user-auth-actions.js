@@ -21,7 +21,6 @@ export const user_signin = (email, password) => async (dispatch) => {
       type: USER_SIGNIN_SUCCESS,
       payload: data,
     });
-    localStorage.setItem("userInfo", JSON.stringify(data));
   } catch (error) {
     dispatch({
       type: USER_SIGNIN_FAILED,
@@ -51,7 +50,6 @@ export const user_register = (name, email, password) => async (dispatch) => {
       type: USER_SIGNIN_SUCCESS,
       payload: data,
     });
-    localStorage.setItem("userInfo", JSON.stringify(data));
   } catch (error) {
     dispatch({
       type: USER_REGISTER_FAILED,
@@ -64,9 +62,9 @@ export const user_register = (name, email, password) => async (dispatch) => {
 };
 
 export const user_signout = () => async (dispatch) => {
-  localStorage.removeItem("userInfo");
-  localStorage.removeItem("cartItems");
-  localStorage.removeItem("shippingAddress");
+  localStorage.removeItem("persist:root");
+  localStorage.removeItem("persist:cartItems");
+  localStorage.removeItem("persist:userInfo");
   dispatch({ type: USER_SIGNOUT });
 };
 
@@ -96,7 +94,6 @@ export const userProfileUpdate =
           type: USER_SIGNIN_SUCCESS,
           payload: data,
         });
-        localStorage.setItem("userInfo",JSON.stringify(data))
       } catch (error) {
         dispatch({
           type: USER_PROFILE_UPDATE_FAILED,
@@ -130,7 +127,6 @@ export const userProfileUpdate =
           type: USER_SIGNIN_SUCCESS,
           payload: data,
         });
-        localStorage.setItem("userInfo",JSON.stringify(data))
 
       } catch (error) {
         dispatch({
